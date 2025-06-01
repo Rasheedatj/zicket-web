@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import EventSlider from "./EventSlider";
 
 const steps = [
   {
@@ -61,8 +62,8 @@ export default function HowItWorks() {
   const [selected, setSelected] = useState(0);
 
   return (
-    <>
-      <section
+    <section>
+      <div
         aria-label="How Zicket works"
         className="w-full flex flex-col md:flex-row gap-10 max-w-6xl mx-auto my-8"
       >
@@ -120,9 +121,12 @@ export default function HowItWorks() {
             </ul>
           </motion.div>
         </AnimatePresence>
-      </section>
+      </div>
 
-      {/* Host in Peace: debajo, ocupando todo el ancho */}
+      <div className="w-full flex flex-col items-center justify-center py-16">
+        <EventSlider />
+      </div>
+
       <div className="w-full flex flex-col items-center justify-center mt-6 mb-8 max-w-3xl mx-auto">
         <h2 className="text-center font-bold text-[4rem] sm:text-[3rem] md:text-[3.5rem] leading-tight [color:var(--color-text-detail)] flex flex-col">
           <span>Host in Peace. No</span>
@@ -139,6 +143,6 @@ export default function HowItWorks() {
           </span>
         </button>
       </div>
-    </>
+    </section>
   );
 } 
