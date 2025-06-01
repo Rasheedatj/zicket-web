@@ -10,6 +10,15 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  /* Design tokens personalizados */
+  --color-primary: #6917AF;
+  --color-divider: #CCCCCC;
+  --color-background-light: #F8F8F8;
+  --color-tab-selected: #F3E8FF;
+  --color-text-main: #231942;
+  --color-text-secondary: #000000CC;
+  --color-text-detail: #2C0A4A;
+  --color-text-description: #6C6C6C;
 }
 
 @media (prefers-color-scheme: dark) {
