@@ -12,14 +12,23 @@
   --font-mono: var(--font-geist-mono);
   /* Design tokens personalizados */
   --color-primary: #6917AF;
+  --color-primary-dark: #1D0F2A;
   --color-divider: #CCCCCC;
+  --color-divider-dark: #404040CC;
+  --color-selected-line: #6917AF;
+  --color-selected-line-dark: #751AC6;
   --color-background-light: #F8F8F8;
+  --color-background-light-dark: #141414;
   --color-tab-selected: #F3E8FF;
+  --color-tab-selected-dark: #1D0F2A;
   --color-text-main: #231942;
+  --color-text-main-dark: #D7B5F5;
   --color-text-secondary: #000000CC;
   --color-text-detail: #2C0A4A;
+  --color-text-detail-dark: #FFFFFFCC;
   --color-card-detail: #5C6170;
   --color-card-divider: #E9E9E9;
+  --color-card-divider-dark: #232323;
   --color-text-description: #6C6C6C;
 }
 

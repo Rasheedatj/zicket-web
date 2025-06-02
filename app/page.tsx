@@ -3,7 +3,7 @@ import HowItWorks from "./components/HowItWorks";
 export default function Home() {
   return (
     <>
-      <HowItWorks />
+      <h1>Home</h1>
     </>
   );
 }

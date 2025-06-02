@@ -78,7 +78,7 @@ export default function EventSlider() {
   return (
     <div className="w-full max-w-6xl mx-auto py-8">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-bold [color:var(--color-text-detail)]">Explore Other Events</h3>
+        <h3 className="text-xl font-bold [color:var(--color-text-detail)] dark:text-[var(--color-text-main-dark)]">Explore Other Events</h3>
         <div className="flex gap-2">
           <button
             className="w-9 h-9 flex items-center justify-center rounded-full cursor-pointer group"
@@ -86,10 +86,12 @@ export default function EventSlider() {
             aria-label="Previous"
           >
             <span className="block group-hover:hidden">
-              <Image src="/assets/icons/arrowLeftNormalIcon.svg" alt="Prev" width={43} height={43} />
+              <Image src="/assets/icons/arrowLeftNormalIcon.svg" alt="Prev" width={43} height={43} className="dark:hidden" />
+              <Image src="/assets/icons/arrowLeftNormalDarkIcon.svg" alt="Prev" width={43} height={43} className="hidden dark:block" />
             </span>
             <span className="hidden group-hover:block">
-              <Image src="/assets/icons/arrowRightSelectedIcon.svg" alt="Prev Hover" width={43} height={43} style={{ transform: "rotate(180deg)" }} />
+              <Image src="/assets/icons/arrowRightSelectedIcon.svg" alt="Prev Hover" width={43} height={43} style={{ transform: "rotate(180deg)" }} className="dark:hidden" />
+              <Image src="/assets/icons/arrowRightSelectedDarkIcon.svg" alt="Prev Hover" width={43} height={43} style={{ transform: "rotate(180deg)" }} className="hidden dark:block" />
             </span>
           </button>
           <button
@@ -98,10 +100,12 @@ export default function EventSlider() {
             aria-label="Next"
           >
             <span className="block group-hover:hidden" style={{ transform: "rotate(180deg)" }}>
-              <Image src="/assets/icons/arrowLeftNormalIcon.svg" alt="Next" width={43} height={43} />
+              <Image src="/assets/icons/arrowLeftNormalIcon.svg" alt="Next" width={43} height={43} className="dark:hidden" />
+              <Image src="/assets/icons/arrowLeftNormalDarkIcon.svg" alt="Next" width={43} height={43} className="hidden dark:block" />
             </span>
             <span className="hidden group-hover:block">
-              <Image src="/assets/icons/arrowRightSelectedIcon.svg" alt="Next Hover" width={43} height={43} />
+              <Image src="/assets/icons/arrowRightSelectedIcon.svg" alt="Next Hover" width={43} height={43} className="dark:hidden" />
+              <Image src="/assets/icons/arrowRightSelectedDarkIcon.svg" alt="Next Hover" width={43} height={43} className="hidden dark:block" />
             </span>
           </button>
         </div>
