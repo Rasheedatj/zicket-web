@@ -22,7 +22,7 @@ function Header() {
     const pathname = usePathname()
     return (
         <div className='pt-5 px-5'>
-            <div className='pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto border border-[#E4E4E4] rounded-[100px] flex items-center justify-between'>
+            <div className='pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto border border-[#E4E4E4] bg-white rounded-[100px] flex items-center justify-between'>
                 <div className='flex items-center gap-15'>
                     <img src={Logo.src} alt="Zicket Logo" className='h-5 w-auto' />
                     <div className='hidden md:flex gap-3 text-sm'>
