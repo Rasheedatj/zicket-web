@@ -28,7 +28,16 @@ const Aztec = () => (
     </svg>
 )
 
+const UpAndRightArrow = ({colour}: {colour?: string}) => (
+    <svg width="23" height="22" viewBox="0 0 23 22" fill={colour || "none"} xmlns="http://www.w3.org/2000/svg">
+        <path d="M15.9661 6.95294L6.2298 16.6893" stroke={colour || "white"} strokeWidth="1.32768" strokeLinecap="round"/>
+        <path d="M10.6554 6.18423C10.6554 6.18423 15.6417 5.7639 16.3985 6.5206C17.1552 7.2773 16.7348 12.2637 16.7348 12.2637" stroke="white" strokeWidth="1.32768" strokeLinecap="round" strokeLinejoin="round"/>
+    </svg>
+
+)
+
 export {
     Starknet,
-    Aztec
+    Aztec,
+    UpAndRightArrow
 }

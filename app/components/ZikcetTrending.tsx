@@ -1,5 +1,8 @@
-import { CalendarDays, Clock5, MapPin, TicketPercent } from "lucide-react"
+'use client'
+
+import { CalendarDays, ChevronLeft, ChevronRight, Clock5, MapPin, TicketPercent } from "lucide-react"
 import Image from "next/image"
+import { useEffect, useRef, useState } from "react"
 
 const cards: {
     imagePath: string,
@@ -44,59 +47,149 @@ const cards: {
 ]
 
 export default function ZicketTrending () {
+
+    const containerRef = useRef<HTMLDivElement>(null);
+    const [showLeftChevron, setShowLeftChevron] = useState(false);
+    const [showRightChevron, setShowRightChevron] = useState(true);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const updateVisibility = () => {
+        if (containerRef.current) {
+            const { scrollLeft, scrollWidth, clientWidth } = containerRef.current
+            setShowLeftChevron(scrollLeft > 0);
+            setShowRightChevron(scrollLeft < scrollWidth - clientWidth - 10)
+        }
+    }
+
+    useEffect(() => {
+        updateVisibility();
+        const container = containerRef.current;
+        if (container) {
+            container.addEventListener("resize", updateVisibility);
+            return () => container.removeEventListener("resize", updateVisibility)
+        }
+    }, [])
+
+    // Scroll to a particular card
+    const scrollToCard = (index: number) => {
+        if (containerRef.current) {
+            const container = containerRef.current;
+            const card = container.children[index] as HTMLElement;
+            const cardWidth = card.offsetWidth;
+            const gap = 20;
+
+            container.scrollTo({
+                left: index * (cardWidth + gap),
+                behavior: "smooth",
+            });
+            setCurrentIndex(index)
+        }
+    }
+
+    // Scroll by one card
+    const scrollBy = (direction: "left" | "right") => {
+        if (containerRef.current) {
+            const container = containerRef.current;
+            const card = container.children[0] as HTMLElement;
+            const cardWidth = card.offsetWidth;
+            const gap = 20;
+
+            container.scrollBy({
+                left: direction === "right" ? cardWidth + gap : -cardWidth - gap,
+                behavior: "smooth"
+            })
+            
+            setTimeout(() => {
+                const newIndex = direction === "right" ?
+                Math.min(cards.length - 1, currentIndex + 1) : Math.max(0, currentIndex - 1);
+                setCurrentIndex(newIndex);
+            }, 300)
+        }
+    }
+
+    // Monitor scroll
+    useEffect(() => {
+        const container = containerRef.current;
+        if (container) {
+            container.addEventListener("resize", updateVisibility);
+            return () => container.removeEventListener("resize", updateVisibility);
+        }
+    }, [])
+
     return (
-        <div className="flex flex-col gap-4 text-black px-20">
-            <div>
-                <p>Trending Now on Zicket</p>
+        <div className="flex flex-col gap-4 text-black px-2 md:px-30 py-15">
+            <div className="flex justify-between items-center my-5">
+                <h1 className="text-lg md:text-2xl font-bold">Trending Now on Zicket</h1>
 
                 {/* Put the Carousel Controls here */}
-                <div>
-
+                <div className="flex gap-0.5 md:gap-2">
+                    <button 
+                        className="p-2 rounded-full bg-white border hover:bg-[#6917AF] hover:text-white border-[#6917AF] text-[#6917AF]"
+                        onClick={() => {
+                            scrollBy("left")
+                        }}
+                        disabled={!showLeftChevron}
+                    >
+                        <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button 
+                        className="p-2 rounded-full border-gray-100 border hover:border-[#6917AF] hover:bg-white bg-[#6917AF] text-white hover:text-[#6917AF]"
+                        onClick={() => {
+                            scrollBy("right")
+                        }}
+                        disabled={!showRightChevron}
+                    >
+                        <ChevronRight className="w-4 h-4" />
+                    </button>
                 </div>
             </div>
 
-            <div className="flex justify-start items-center gap-5">
+            <div 
+                ref={containerRef}
+                className="flex justify-start items-center gap-5 max-w-full overflow-x-auto
+                            pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+            >
                 {cards.map((card, index) => {
                     return (
-                        <div key={index}>
-                            <div className="relative h-48 w-[325px]">
+                        <div key={index} className="border border-gray-200 p-1 rounded-md">
+                            <div className="relative h-48 w-[270px] md:w-[385px]">
                                 <Image 
                                     alt={card.title}
                                     src={card.imagePath}
                                     fill
-                                    className="object-cover"
+                                    className="object-cover rounded-md"
                                 />
                             </div>
-                            <div>
-                                <p>{card.title}</p>
-                                <div>
+                            <div className="px-6 py-4 flex flex-col gap-4">
+                                <p className="font-semibold">{card.title}</p>
+                                <div className="flex flex-col gap-2">
                                     {/* Date */}
-                                    <p>
-                                        <CalendarDays />
+                                    <p className="flex items-center justify-start gap-1.5">
+                                        <CalendarDays className="text-gray-600 w-4 h-4" />
                                         <span>{card.date}</span>
                                     </p>
                                     {/* Time */}
-                                    <p>
-                                        <Clock5 />
+                                    <p className="flex items-center justify-start gap-1.5">
+                                        <Clock5 className="text-gray-600 w-4 h-4" />
                                         <span>{card.time}</span>
                                     </p>
                                     {/* Location */}
-                                    <p>
-                                        <MapPin />
+                                    <p className="flex items-center justify-start gap-1.5">
+                                        <MapPin className="text-gray-600 w-4 h-4" />
                                         <span>{card.location}</span>
                                     </p>
                                 </div>
 
                                 <hr />
 
-                                <div>
-                                    <p>
-                                        <TicketPercent />
-                                        <span>{card.price}</span>
+                                <div className="flex justify-between">
+                                    <p className="flex gap-1.5 items-center justify-start">
+                                        <TicketPercent className="text-gray-600 w-4 h-4 -rotate-45" />
+                                        <span className="font-bold">{card.price}</span>
                                     </p>
-                                    <p>
+                                    <p className="flex gap-1.5 items-center justify-start">
                                         <span>Get Ticket</span>
-
+                                        <ChevronRight className="w-4 h-4"/>
                                     </p>
                                 </div>
                             </div>
