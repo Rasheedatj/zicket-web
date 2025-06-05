@@ -62,7 +62,7 @@ export default function HowItWorks() {
   const [selected, setSelected] = useState(0);
 
   return (
-    <section>
+    <section className="mt-6 lg:mt-20">
       <div
         aria-label="How Zicket works"
         className="w-full flex flex-col md:flex-row gap-10 max-w-6xl mx-auto my-8"
@@ -147,4 +147,4 @@ export default function HowItWorks() {
       </div>
     </section>
   );
-} 
+}

@@ -46,11 +46,11 @@ export default function News () {
                 <p className="text-center w-full md:w-[90%] mx-auto text-[#6C6C6C]">The latest drops, updates, and behind-the-scenes from the Zicket ecosystem.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto md:max-w-[90%] overflow-x-auto
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-7xl mx-auto md:max-w-[90%] lg:max-w-full overflow-x-auto
                             pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {newsCards.map((card, index) => {
                     return (
-                        <div key={index} className="dark:border dark:border-[#797979] w-fit pb-4 dark:rounded-md">
+                        <div key={index} className="dark:border dark:border-[#282828] w-fit pb-4 dark:rounded-md">
                             <div className="relative w-[300px] md:w-[380px] h-[158px] md:h-[200px]">
                                 <Image
                                     fill

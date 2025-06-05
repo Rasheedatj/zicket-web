@@ -35,9 +35,6 @@ export default function Home() {
         <News />
       </div>
 
-      <Footer />
-
-
     </>
   );
 }

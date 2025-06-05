@@ -20,9 +20,9 @@ const DropDown: React.FC<DropDownProps> = ({
   return (
     <div
       onClick={onToggle}
-      className="relative pl-6 p-3 border border-[#2C0A4A] rounded-full cursor-pointer 2xl:min-w-46 max-w-46"
+      className="relative pl-6 p-3 border border-[#2C0A4A] dark:border-[#D7B5F5] rounded-full cursor-pointer 2xl:min-w-46 max-w-46"
     >
-      <div className="gap-2 text-[#2C0A4A] text-sm font-medium flex items-center  justify-between">
+      <div className="gap-2 text-[#2C0A4A] dark:text-[#D7B5F5] text-sm font-medium flex items-center  justify-between">
         <span className="select-none truncate">{placeHolder}</span>
         <span
           className={`${
@@ -33,7 +33,7 @@ const DropDown: React.FC<DropDownProps> = ({
         </span>
       </div>
       {isOpen && (
-        <div className="absolute left-0 top-full mt-2 rounded-sm bg-white  shadow w-full shadow-[#ae78dd9e] z-20">
+        <div className="absolute left-0 top-full mt-2 rounded-sm bg-white dark:bg-[#D7B5F5]  shadow w-full shadow-[#ae78dd9e] z-20">
           <ul>
             {items.map((item, idx) => (
               <li key={idx}>

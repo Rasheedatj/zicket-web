@@ -211,7 +211,7 @@ function MainContent() {
         <div className="overflow-hidden"></div>
         <div className="flex items-center justify-between  w-full flex-row    gap-3 :flex-row">
           <div className="overflow-hidden">
-            <p className="text-xl sm:text-2xl font-bold text-[#2C0A4A]">
+            <p className="text-xl sm:text-2xl font-bold text-[#2C0A4A] dark:text-[#D7B5F5]">
               Filter by:
             </p>
           </div>

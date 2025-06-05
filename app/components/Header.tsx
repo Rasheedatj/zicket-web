@@ -24,7 +24,7 @@ function Header() {
     const pathname = usePathname()
     return (
         <div className='pt-5 px-5'>
-            <div className='pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto border border-[#E4E4E4] bg-white dark:bg-[#0D0D0D] rounded-[100px] flex items-center justify-between'>
+            <div className='pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto dark:border dark:border-[#282828] bg-white dark:bg-[#0D0D0D] rounded-[100px] flex items-center justify-between'>
                 <div className='flex items-center gap-15'>
                     <a href="/" className='cursor-pointer'><img src={Logo.src} alt="Zicket Logo" className='h-5 w-auto' /></a>
                     <div className='hidden md:flex gap-3 text-sm'>
