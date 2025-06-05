@@ -1,4 +1,4 @@
-import Image from "next/image";
+import HowItWorks from "./components/HowItWorks";
 import Header from "./components/Header";
 import { Description } from "./components/Description";
 import WhatZicketOffers from "./components/WhatZicketOffers";
