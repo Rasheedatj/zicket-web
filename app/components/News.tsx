@@ -30,7 +30,7 @@ const newsCards = [
         subject: 'Smaller, faster events for high trust groups',
         author: 'Indie Venue Club',
         avatar: "/images/avatar3.jpg",
-        image: "/images/News3.jpg"
+        image: "/images/News-3.jpg"
     }
 ]
 
@@ -52,7 +52,7 @@ export default function News () {
                     return (
                         <div key={index} className="dark:border dark:border-[#797979] w-fit pb-4 dark:rounded-md">
                             <div className="relative w-[300px] md:w-[380px] h-[158px] md:h-[200px]">
-                                <Image 
+                                <Image
                                     fill
                                     src={card.image}
                                     alt={card.title}

@@ -15,9 +15,9 @@ function Header() {
     }
     const [isOpen, setIsOpen] = useState(false);
     const navLinks: NavLink[] = [
-        { name: 'Explore', href: '/' },
+        { name: 'Explore', href: '/explore' },
         { name: 'About', href: '/about' },
-        { name: 'How It Works', href: '/howItWorks' },
+        { name: 'How It Works', href: '/how-it-works' },
         { name: 'Docs', href: '/docs' },
         { name: 'News', href: '/news' },
     ]
@@ -26,7 +26,7 @@ function Header() {
         <div className='pt-5 px-5'>
             <div className='pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto border border-[#E4E4E4] bg-white dark:bg-[#0D0D0D] rounded-[100px] flex items-center justify-between'>
                 <div className='flex items-center gap-15'>
-                    <img src={Logo.src} alt="Zicket Logo" className='h-5 w-auto' />
+                    <a href="/" className='cursor-pointer'><img src={Logo.src} alt="Zicket Logo" className='h-5 w-auto' /></a>
                     <div className='hidden md:flex gap-3 text-sm'>
                         {navLinks.map((link) => {
                             const isActive = pathname === link.href
