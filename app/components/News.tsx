@@ -1,4 +1,8 @@
+'use client'
+
 import Image from "next/image";
+import { UpAndRightArrow } from "./SvgComponents";
+import { useTheme } from "next-themes";
 
 const newsCards = [
     {
@@ -31,18 +35,22 @@ const newsCards = [
 ]
 
 export default function News () {
+
+    const { theme } = useTheme();
+    if (!theme) return
+
     return (
-        <div className="text-black px-2 md:px-30 py-6 md:py-16">
+        <div className="text-black px-2 md:px-30 py-6 md:py-16 flex flex-col gap-10 items-center">
             <div className="mb-10">
-                <h1 className="text-[60px] text-center font-bold text-[#2C0A4A]">News</h1>
-                <p className="text-center w-full md:w-[40%] mx-auto text-[#6C6C6C]">The latest drops, updates, and behind-the-scenes from the Zicket ecosystem.</p>
+                <h1 className="text-[60px] text-center font-bold text-[#2C0A4A] dark:text-[#D7B5F5]">News</h1>
+                <p className="text-center w-full md:w-[90%] mx-auto text-[#6C6C6C]">The latest drops, updates, and behind-the-scenes from the Zicket ecosystem.</p>
             </div>
 
-            <div className="flex gap-x-4 md:justify-between max-w-full md:max-w-[90%] overflow-x-auto
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 max-w-6xl mx-auto md:max-w-[90%] overflow-x-auto
                             pb-4 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
                 {newsCards.map((card, index) => {
                     return (
-                        <div key={index} className="">
+                        <div key={index} className="dark:border dark:border-[#797979] w-fit pb-4 dark:rounded-md">
                             <div className="relative w-[300px] md:w-[380px] h-[158px] md:h-[200px]">
                                 <Image 
                                     fill
@@ -55,7 +63,7 @@ export default function News () {
                             <div className="px-4 py-6 flex flex-col gap-2.5">
                                 <p className="text-[12px] text-[#5C6170]">{card.genre} - {card.date}</p>
 
-                                <p className="font-bold">{card.title}</p>
+                                <p className="font-bold text-[16px] dark:text-[#D7B5F5]">{card.title}</p>
 
                                 <p className="text-[12px] text-[#5C6170]">{card.subject}</p>
                             </div>
@@ -64,12 +72,17 @@ export default function News () {
                                 <div className="relative w-6 h-6">
                                     <Image src={card.avatar} fill alt="My Avatar" className="rounded-full" />
                                 </div>
-                                <span className="text-[14px] text-[#1E1E1E]">{card.author}</span>
+                                <span className="text-[14px] text-[#1E1E1E] dark:text-[#D7B5F5]">{card.author}</span>
                             </div>
                         </div>
                     )
                 })}
             </div>
+
+            <button className="border-2 border-[#2C0A4A] dark:border-[#D7B5F5] text-[#1C1C1C] dark:text-[#D7B5F5] bg-transparent rounded-4xl px-6 py-2 w-fit mt-5 self-center flex gap-1">
+                <span>See Recent News</span>
+                <UpAndRightArrow colour={theme === 'dark' ? '#D7B5F5':"black"} />
+            </button>
         </div>
     )
 }

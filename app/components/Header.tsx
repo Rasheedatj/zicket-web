@@ -5,6 +5,8 @@ import Logo from '@/public/images/Logo.png'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { BarsIcon, SearchIcon } from '@/public/svg/svg'
+import { Switch } from '@/components/ui/switch'
+import { ModeToggle } from './DarkModeToggle'
 
 function Header() {
     type NavLink = {
@@ -22,7 +24,7 @@ function Header() {
     const pathname = usePathname()
     return (
         <div className='pt-5 px-5'>
-            <div className='pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto border border-[#E4E4E4] bg-white rounded-[100px] flex items-center justify-between'>
+            <div className='pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto border border-[#E4E4E4] bg-white dark:bg-[#0D0D0D] rounded-[100px] flex items-center justify-between'>
                 <div className='flex items-center gap-15'>
                     <img src={Logo.src} alt="Zicket Logo" className='h-5 w-auto' />
                     <div className='hidden md:flex gap-3 text-sm'>
@@ -33,7 +35,7 @@ function Header() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`px-2 ${pathname === link.href ? 'text-[#6917AF]' : 'text-[#172233] hover:text-[#6917AF]'
+                                    className={`px-2 ${pathname === link.href ? 'text-[#6917AF] dark:text-[#D7B5F5]' : 'text-[#172233] dark:text-white hover:text-[#6917AF] dark:hover:text-[#D7B5F5]'
                                         }`}
                                 >
                                     {link.name}
@@ -43,9 +45,9 @@ function Header() {
                     </div>
                 </div>
                 <div className='hidden lg:flex items-center gap-2'>
-                    <button className='w-11 h-11 flex items-center justify-center border border-[#2C0A4A] rounded-full'><SearchIcon /></button>
+                    <button className='w-11 h-11 flex items-center justify-center border border-[#2C0A4A] dark:border-[#D7B5F5] rounded-full'><SearchIcon /></button>
                     <button className='px-6 py-3 border border-[#6917AF] text-[#6917AF] rounded-full font-bold'>Connect Wallet</button>
-                    <button className='px-6 py-3 border bg-[#6917AF] text-white rounded-full font-bold'>Host Event</button>
+                    <button className='px-6 py-3 border bg-[#6917AF] text-white dark:text-[#0D0D0D] rounded-full font-bold'>Host Event</button>
                 </div>
                 <button onClick={() => setIsOpen(!isOpen)} className='lg:hidden border-2 border-[#6917AF] rounded-lg p-3'>
                     <BarsIcon />
@@ -73,6 +75,10 @@ function Header() {
                         <button className='px-6 py-3 border bg-[#6917AF] text-white rounded-full font-bold'>Host Event</button>
                     </div>
                 )}
+            </div>
+
+            <div className='absolute top-12 right-26'>
+                <ModeToggle />
             </div>
         </div>
     )

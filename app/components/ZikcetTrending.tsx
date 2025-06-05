@@ -1,6 +1,6 @@
 'use client'
 
-import { CalendarDays, ChevronLeft, ChevronRight, Clock5, MapPin, TicketPercent } from "lucide-react"
+import { CalendarDays, ChevronLeft, ChevronRight, Clock5, MapPin, Share2, TicketPercent } from "lucide-react"
 import Image from "next/image"
 import { useEffect, useRef, useState } from "react"
 
@@ -63,12 +63,18 @@ export default function ZicketTrending () {
 
     useEffect(() => {
         updateVisibility();
+        window.addEventListener("resize", updateVisibility);
+        return () => window.removeEventListener("resize", updateVisibility)
+    }, [])
+
+    useEffect(() => {
         const container = containerRef.current;
         if (container) {
-            container.addEventListener("resize", updateVisibility);
-            return () => container.removeEventListener("resize", updateVisibility)
+            container.addEventListener("scroll", updateVisibility);
+            return () => container.removeEventListener("scroll", updateVisibility);
         }
-    }, [])
+    }, []);
+
 
     // Scroll to a particular card
     const scrollToCard = (index: number) => {
@@ -103,28 +109,20 @@ export default function ZicketTrending () {
                 const newIndex = direction === "right" ?
                 Math.min(cards.length - 1, currentIndex + 1) : Math.max(0, currentIndex - 1);
                 setCurrentIndex(newIndex);
+                updateVisibility();
             }, 300)
         }
     }
 
-    // Monitor scroll
-    useEffect(() => {
-        const container = containerRef.current;
-        if (container) {
-            container.addEventListener("resize", updateVisibility);
-            return () => container.removeEventListener("resize", updateVisibility);
-        }
-    }, [])
-
     return (
-        <div className="flex flex-col gap-4 text-black px-2 md:px-30 py-15">
-            <div className="flex justify-between items-center my-5">
-                <h1 className="text-lg md:text-2xl font-bold">Trending Now on Zicket</h1>
+        <div className="flex flex-col gap-6 text-black px-2 md:pl-30 py-15">
+            <div className="flex justify-between items-center my-5 w-[88%]">
+                <h1 className="text-[24px] md:text-2xl font-semibold text-[#2C0A4A] dark:text-[#D7B5F5]">Trending Now on Zicket</h1>
 
                 {/* Put the Carousel Controls here */}
                 <div className="flex gap-0.5 md:gap-2">
                     <button 
-                        className="p-2 rounded-full bg-white border hover:bg-[#6917AF] hover:text-white border-[#6917AF] text-[#6917AF]"
+                        className="px-3 py-2 rounded-full bg-white dark:bg-[#0D0D0D] border hover:bg-[#6917AF] hover:text-white border-[#6917AF] dark:border-[#D7B5F5] text-[#6917AF] dark:text-[#D7B5F5]"
                         onClick={() => {
                             scrollBy("left")
                         }}
@@ -133,7 +131,7 @@ export default function ZicketTrending () {
                         <ChevronLeft className="w-4 h-4" />
                     </button>
                     <button 
-                        className="p-2 rounded-full border-gray-100 border hover:border-[#6917AF] hover:bg-white bg-[#6917AF] text-white hover:text-[#6917AF]"
+                        className="px-3 py-2 rounded-full border-gray-100 dark:border-0 border hover:border-[#6917AF] hover:bg-white bg-[#6917AF] text-white dark:text-[#0D0D0D] hover:text-[#6917AF]"
                         onClick={() => {
                             scrollBy("right")
                         }}
@@ -161,21 +159,24 @@ export default function ZicketTrending () {
                                 />
                             </div>
                             <div className="px-6 py-4 flex flex-col gap-4">
-                                <p className="font-semibold">{card.title}</p>
-                                <div className="flex flex-col gap-2">
+                                <div className="flex items-center justify-between">
+                                    <p className="font-semibold text-[17.09px]">{card.title}</p>
+                                    <Share2 className="text-[#646468] text-[17px] bg-[#FBE7D3] w-[35px] h-[35px] px-2 py-2 rounded-full"/>
+                                </div>
+                                <div className="flex flex-col gap-2 text-[#6C6C6C] text-[14.95px]">
                                     {/* Date */}
-                                    <p className="flex items-center justify-start gap-1.5">
-                                        <CalendarDays className="text-gray-600 w-4 h-4" />
+                                    <p className="flex items-center justify-start gap-2.5">
+                                        <CalendarDays className="w-4 h-4" />
                                         <span>{card.date}</span>
                                     </p>
                                     {/* Time */}
                                     <p className="flex items-center justify-start gap-1.5">
-                                        <Clock5 className="text-gray-600 w-4 h-4" />
+                                        <Clock5 className="w-4 h-4" />
                                         <span>{card.time}</span>
                                     </p>
                                     {/* Location */}
                                     <p className="flex items-center justify-start gap-1.5">
-                                        <MapPin className="text-gray-600 w-4 h-4" />
+                                        <MapPin className="w-4 h-4" />
                                         <span>{card.location}</span>
                                     </p>
                                 </div>
@@ -183,11 +184,11 @@ export default function ZicketTrending () {
                                 <hr />
 
                                 <div className="flex justify-between">
-                                    <p className="flex gap-1.5 items-center justify-start">
+                                    <p className="flex gap-1.5 items-center justify-start text-[21.36px]">
                                         <TicketPercent className="text-gray-600 w-4 h-4 -rotate-45" />
                                         <span className="font-bold">{card.price}</span>
                                     </p>
-                                    <p className="flex gap-1.5 items-center justify-start">
+                                    <p className="flex gap-1.5 items-center justify-start text-[15.83px]">
                                         <span>Get Ticket</span>
                                         <ChevronRight className="w-4 h-4"/>
                                     </p>
