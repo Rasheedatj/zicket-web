@@ -209,7 +209,7 @@ function MainContent() {
     <div className="max-w-7xl mx-auto space-y-15 py-20 px-4">
       <div className="flex md:items-center justify-between  flex-col md:flex-row items-start gap-3">
         <div className="overflow-hidden"></div>
-        <div className="flex 2xl:items-center justify-between  w-full flex-row    gap-3 lg:flex-col 2xl:flex-row">
+        <div className="flex items-center justify-between  w-full flex-row    gap-3 :flex-row">
           <div className="overflow-hidden">
             <p className="text-xl sm:text-2xl font-bold text-[#2C0A4A]">
               Filter by:
