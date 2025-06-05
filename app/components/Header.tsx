@@ -35,7 +35,7 @@ function Header() {
                                 <Link
                                     key={link.href}
                                     href={link.href}
-                                    className={`px-2 ${pathname === link.href ? 'text-[#6917AF] dark:text-[#D7B5F5]' : 'text-[#172233] dark:text-white hover:text-[#6917AF] dark:hover:text-[#D7B5F5]'
+                                    className={`px-2 text-sm font-medium ${pathname === link.href ? 'text-[#6917AF] dark:text-[#D7B5F5]' : 'text-[#172233] dark:text-white hover:text-[#6917AF] dark:hover:text-[#D7B5F5]'
                                         }`}
                                 >
                                     {link.name}
