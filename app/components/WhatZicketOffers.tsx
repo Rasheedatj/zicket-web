@@ -3,6 +3,7 @@
 import Image from "next/image"
 import { UpAndRightArrow } from "./SvgComponents"
 import { useTheme } from "next-themes"
+import { ArrowUpRight } from "lucide-react"
 
 const images: {
     src: string,
@@ -45,7 +46,7 @@ const images: {
 export default function WhatZicketOffers () {
     let { theme } = useTheme();
     if (!theme) return
-    
+
     return (
         <div className="w-full mx-auto px-4 md:px-30 flex flex-col md:flex-row justify-between py-6 md:py-20">
 
@@ -53,14 +54,17 @@ export default function WhatZicketOffers () {
                 <p className="text-[25px] md:text-[38px] text-[#2C0A4A] dark:text-[#D7B5F5] font-semibold">
                     Private, powerful and perfectly your vibe
                 </p>
-                <p className="text-[16px] text-[#1C1C1C] dark:text-[#D7B5F5]">
-                    Host, mint, and attend events without revealing your identity. 
+                <p className="text-[16px] text-[#1C1C1C] dark:text-gray-500">
+                    Host, mint, and attend events without revealing your identity.
                     Zicket is the privacy-native event platform built on Aztec Network.
                 </p>
 
-                <button className="border-[1.5px] border-[#2C0A4A] dark:border-[#D7B5F5] text-[#1C1C1C] dark:text-[#D7B5F5] bg-transparent rounded-4xl px-6 py-2 w-fit mt-5 flex gap-1">
+                <button className="group border-2 border-[#2C0A4A] dark:border-[#D7B5F5] [color:var(--color-text-detail)] dark:[color:var(--color-text-main-dark)] bg-transparent rounded-4xl px-6 py-2 w-fit mt-5 flex items-center gap-1 cursor-pointer">
                     <span>Explore Events</span>
-                    <UpAndRightArrow colour={theme === 'dark' ? 'black' : '#D7B5F5'}/>
+                    <ArrowUpRight
+                        className="transform transition-transform duration-300 group-hover:rotate-45"
+                        color={theme === 'dark' ? '#D7B5F5' : '#2C0A4A'}
+                    />
                 </button>
             </div>
 
@@ -69,16 +73,16 @@ export default function WhatZicketOffers () {
                 {
                     images.map((image, index) => {
                         return (
-                            <div key={index} className="flex flex-col items-center gap-2">
-                                <div className="w-[134px] h-[134px] border-[0.2px] border-[#1C1C1C] dark:border-[#797979] rounded-md flex items-center justify-center">
-                                    <Image 
+                            <div key={index} className="group flex flex-col items-center gap-2">
+                                <div className="w-[134px] h-[134px] border-[0.56px] border-[#1C1C1C] dark:border-[#797979] rounded-md flex items-center justify-center transition-all duration-300 dark:group-hover:drop-shadow-[0_0_2em_rgba(255,255,255,0.5)]">
+                                    <Image
                                         alt={image.alt}
                                         src={image.src}
                                         width={50}
                                         height={50}
                                     />
                                 </div>
-                                <span className="text-[11.73px] font-semibold" >{image.alt}</span>
+                                <span className="text-[11.73px] font-semibold transition-colors duration-300 group-hover:[color:var(--color-text-detail)]">{image.alt}</span>
                             </div>
                         )
                     })

@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { Aztec, Starknet, UpAndRightArrow } from "./SvgComponents"
+import { ArrowUpRight } from "lucide-react"
 
 export const Description = () => {
     return (
@@ -15,12 +16,16 @@ export const Description = () => {
             </div>
 
             <div className="flex flex-col md:flex-row mt-3 justify-center items-center gap-x-2 gap-y-2">
-                <button className="border border-white text-[16px] rounded-4xl px-6 py-2 flex gap-1 items-center w-[185px]">
-                    <span>Explore Events</span> 
-                    <span className="hidden lg:block font-bold"><UpAndRightArrow /></span>
+                <button className="group border-2 border-white text-[16px] rounded-4xl px-6 py-2 flex gap-1 items-center w-[185px] cursor-pointer">
+                    <span>Explore Events</span>
+                    <span className="hidden lg:block">
+                        <ArrowUpRight
+                            className="transform transition-transform duration-300 group-hover:rotate-45"
+                        />
+                    </span>
                 </button>
 
-                <button className="bg-[#6917AF] text-[16px] rounded-4xl px-10 py-2 text-center items-center w-[185px]">
+                <button className="bg-[#6917AF] text-[16px] rounded-4xl px-10 py-2 text-center items-center w-[185px] cursor-pointer transition-all duration-300 hover:drop-shadow-[0_0_2em_rgba(255,255,255,0.3)]">
                     Host Event
                 </button>
             </div>

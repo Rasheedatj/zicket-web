@@ -1,9 +1,11 @@
 "use client";
+
 import { useState } from "react";
 import Card from "./card";
 import { ArrowRightIcon, EmptyStateIcon } from "@/public/svg/svg";
 import DropDown from "../DropDown";
 import { dummyEvents } from "@/lib/dummyEvents/events";
+
 function MainContent() {
   const [events] = useState(dummyEvents);
   const [IsLocationOpen, setIsLocationOpen] = useState(false);
