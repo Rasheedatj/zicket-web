@@ -60,7 +60,7 @@ function Card({ title, date, time, location, price }: CardProps) {
             </div>
             <button
               role="link"
-              className="flex items-center text-base font-semibold text-[#2C0A4A] group w-fit"
+              className="cursor-pointer flex items-center text-base font-semibold text-[#2C0A4A] group w-fit"
               onClick={() => handleNavigate(title)}
             >
               Get Ticket{" "}

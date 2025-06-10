@@ -21,16 +21,16 @@ export default function EventPage({ params }: Props) {
   }, []);
   return (
     <div className="max-w-7xl mx-auto space-y-15 py-20 px-4">
-      <div className="flex items-center gap-1">
-        <p className="text-sm font-medium text-[#2C0A4A] dark:text-[#D7B5F5] capitalize">
+      <div className="flex gap-1 items-center w-[calc(100vw - 20px)] lg:w-[436px]">
+        <a href="/explore" className="text-sm font-medium text-[#2C0A4A] dark:text-[#D7B5F5] capitalize">
           explore
-        </p>
+        </a>
         <span className="text-[#667185]">/</span>
-        <p className="text-sm font-medium text-[#2C0A4A] dark:text-[#D7B5F5]">
+        <p className="w-fit text-xs md:text-sm font-medium text-[#2C0A4A] dark:text-[#D7B5F5] line-clamp-1 flex-shrink">
           Web3 & Crypto Meetups
         </p>
         <span className="text-[#667185]">/</span>
-        <p className="text-sm font-medium text-[#667185]">{eventName}</p>
+        <p className="w-1/3 md:w-fit text-sm font-medium text-[#667185] line-clamp-1 flex-shrink min-w-0">{eventName}</p>
       </div>
       <div className="space-y-16">
         <EventDetailCard

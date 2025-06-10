@@ -18,8 +18,8 @@ const FAQAccordion = ({
         <div className="flex justify-between items-center">
             <p className="font-bold text-[14px] md:text-[16px] lg:text-[20px]">{question}</p>
 
-            <div 
-                className="w-6 h-6 md:w-8 md:h-8 bg-black text-gray-300 rounded-full text-[10px] md:text-[16px] lg:text-[20px] grid place-items-center"
+            <div
+                className="w-6 h-6 md:w-8 md:h-8 bg-black text-gray-300 rounded-full text-[10px] md:text-[16px] lg:text-[20px] grid place-items-center cursor-pointer"
                 onClick={onShowAnswer}
             >
                 {showAnswer ? (<Minus />) : (<Plus />)}
@@ -27,7 +27,7 @@ const FAQAccordion = ({
         </div>
 
         {showAnswer && (
-            <div className="mt-6 text-[16px]">
+            <div className="mt-6 text-[16px] dark:text-[#6C6C6C]">
                 {answer}
             </div>
         )}
@@ -41,7 +41,7 @@ export default function FAQ () {
 
     const handleShowAnswer = (number: number) => {
         if (showAnswer.includes(number)) {
-            setShowAnswer((prev) => 
+            setShowAnswer((prev) =>
                 prev.filter((item) => item !== number)
             );
         } else {
@@ -57,34 +57,34 @@ export default function FAQ () {
             <div className="w-[60%] md:w-[40%] mx-auto my-4 md:my-10 flex flex-col gap-[12px]">
                 <p className="text-center text-[35px] md:text-[60px] text-[#2C0A4A] dark:text-[#D7B5F5] font-bold">FAQs</p>
                 <p className="text-center text-[#6C6C6C] text-[16px]">
-                    Everything you need to know about using Zicket—how it works, 
+                    Everything you need to know about using Zicket—how it works,
                     what makes it private, and how you can join or host your next event.
                 </p>
             </div>
 
             <div className="flex flex-col gap-4 pt-6">
-                <FAQAccordion 
+                <FAQAccordion
                     question="What makes Zicket so unique ?"
                     answer={answer}
                     showAnswer={showAnswer.includes(0)}
                     onShowAnswer={() => handleShowAnswer(0)}
                 />
 
-                <FAQAccordion 
+                <FAQAccordion
                     question="Do I need an account to get tickets?"
                     answer={answer}
                     showAnswer={showAnswer.includes(1)}
                     onShowAnswer={() => handleShowAnswer(1)}
                 />
 
-                <FAQAccordion 
+                <FAQAccordion
                     question="Is my identity hidden when I attend events?"
                     answer={answer}
                     showAnswer={showAnswer.includes(2)}
                     onShowAnswer={() => handleShowAnswer(2)}
                 />
 
-                <FAQAccordion 
+                <FAQAccordion
                     question="What kind of events are on Zicket?"
                     answer={answer}
                     showAnswer={showAnswer.includes(3)}
