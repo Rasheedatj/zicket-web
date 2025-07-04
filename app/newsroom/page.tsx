@@ -190,7 +190,7 @@ export default function NewsroomPage() {
               key={cat}
               className={`px-5 py-2 rounded-full border font-medium text-sm transition-all ${selectedCategory === cat
                   ? "bg-[#9747FF] text-white border-[#9747FF]"
-                  : "bg-white text-[#2C0A4A] border-[#9747FF] dark:bg-[#232323] dark:text-[#D7B5F5]"
+                  : "bg-white text-[#6917AF] border-[#9747FF] dark:bg-[#232323] dark:text-[#D7B5F5]"
                 }`}
               onClick={() => {
                 setSelectedCategory(cat);
