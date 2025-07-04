@@ -6,7 +6,6 @@ import ZicketTrending from "./components/ZikcetTrending";
 import WhyZicket from "./components/About/WhyZicket";
 import Host from "./components/Host";
 import News from "./components/News";
-import Footer from "./components/Footer";
 import FAQ from "./components/FAQ";
 
 export default function Home() {

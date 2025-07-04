@@ -1,10 +1,7 @@
 "use client";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { UpAndRightArrow } from "../components/SvgComponents";
 
 const categories = [
   "All",
@@ -114,7 +111,7 @@ export default function NewsroomPage() {
             The latest news and views from Zicket
           </p>
           <form
-            className="flex flex-col md:flex-row items-center gap-3 w-full max-w-md mb-8"
+            className="flex flex-col md:flex-row items-center gap-3 w-full max-w-4xl mb-3"
             onSubmit={(e) => {
               e.preventDefault();
               // handle subscribe
@@ -127,19 +124,19 @@ export default function NewsroomPage() {
                 placeholder="Enter Email Address"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-full border border-[#E0E0E0] px-5 py-3 focus:outline-none focus:ring-2 focus:ring-[#9747FF] text-black"
+                className="w-full rounded-full border border-[#E0E0E0] pl-10 pr-4 py-3 focus:outline-none focus:ring-2 focus:ring-[#9747FF] text-black"
               />
-              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6C6C6C]">
-                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M2 6.5A2.5 2.5 0 014.5 4h15A2.5 2.5 0 0122 6.5v11a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 17.5v-11zm1.75.75l7.72 6.18a2.25 2.25 0 002.78 0l7.72-6.18" stroke="#6C6C6C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+              <span className="absolute left-4 top-1/2 -translate-y-1/2 text-[#6C6C6C] pointer-events-none">
+                <svg width="20" height="20" fill="none" viewBox="0 0 24 24"><path d="M2 6.5A2.5 2.5 0 014.5 4h15A2.5 2.5 0 0122 6.5v11a2.5 2.5 0 01-2.5 2.5h-15A2.5 2.5 0 012 17.5v-11zm1.75.75l7.72 6.18a2.25 2.25 0 002.78 0l7.72-6.18" stroke="#6C6C6C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>
               </span>
             </div>
-            <Button
-              type="submit"
-              className="rounded-full bg-[#9747FF] hover:bg-[#6917AF] text-white px-8 py-3 font-semibold shadow-md"
-            >
-              Subscribe!
-            </Button>
           </form>
+          <Button
+            type="submit"
+            className="rounded-full bg-[#9747FF] hover:bg-[#6917AF] text-white px-8 py-3 font-semibold mb-4 shadow-md"
+          >
+            Subscribe!
+          </Button>
         </section>
 
         {/* Announcement + Hero */}
@@ -191,11 +188,10 @@ export default function NewsroomPage() {
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`px-5 py-2 rounded-full border font-medium text-sm transition-all ${
-                selectedCategory === cat
+              className={`px-5 py-2 rounded-full border font-medium text-sm transition-all ${selectedCategory === cat
                   ? "bg-[#9747FF] text-white border-[#9747FF]"
                   : "bg-white text-[#2C0A4A] border-[#9747FF] dark:bg-[#232323] dark:text-[#D7B5F5]"
-              }`}
+                }`}
               onClick={() => {
                 setSelectedCategory(cat);
                 setPage(1);
