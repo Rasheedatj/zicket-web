@@ -250,7 +250,7 @@ export default function NewsroomPage() {
         {/* Pagination */}
         <section className="flex gap-2 mb-16 items-center justify-center">
           <button
-            className="px-3 py-1 rounded-md border border-[#9747FF] text-[#9747FF] font-semibold disabled:opacity-50"
+            className={`px-4 py-2 rounded-full font-semibold transition-all text-[#9747FF] bg-[#E9D7FE] hover:bg-[#D6BBFB] disabled:opacity-50 border-0`}
             onClick={() => setPage((p) => Math.max(1, p - 1))}
             disabled={page === 1}
           >
@@ -259,25 +259,25 @@ export default function NewsroomPage() {
           {[...Array(totalPages)].map((_, i) => (
             <button
               key={i}
-              className={`w-8 h-8 rounded-md flex items-center justify-center font-semibold border transition-all ${
-                page === i + 1
-                  ? "bg-[#9747FF] text-white border-[#9747FF]"
-                  : "bg-white text-[#9747FF] border-[#9747FF] dark:bg-[#232323]"
-              }`}
+              className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold transition-all mx-0.5
+                ${page === i + 1
+                  ? "bg-[#9747FF] text-white border-0"
+                  : "bg-[#E9D7FE] text-[#9747FF] border-0 hover:bg-[#D6BBFB]"}
+              `}
               onClick={() => setPage(i + 1)}
             >
               {i + 1}
             </button>
           ))}
           <button
-            className="px-3 py-1 rounded-md border border-[#9747FF] text-[#9747FF] font-semibold disabled:opacity-50"
+            className={`px-4 py-2 rounded-full font-semibold transition-all text-[#9747FF] bg-[#E9D7FE] hover:bg-[#D6BBFB] disabled:opacity-50 border-0`}
             onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
             disabled={page === totalPages}
           >
             Next
           </button>
           <button
-            className="ml-2 px-3 py-1 rounded-md border border-[#9747FF] text-[#9747FF] font-semibold"
+            className={`px-4 py-2 rounded-full font-semibold transition-all text-[#9747FF] bg-[#E9D7FE] hover:bg-[#D6BBFB] ml-2 border-0`}
             onClick={() => setPage(totalPages)}
             disabled={page === totalPages}
           >
