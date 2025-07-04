@@ -43,12 +43,12 @@ export function RelatedArticles({ articles }: RelatedArticlesProps) {
   return (
     <section className="w-full py-20 gap-15 px-[1.25rem] flex flex-col items-center justify-center">
       <div className="flex lg:hidden justify-between items-end w-full">
-        <h2 className="text-2xl font-bold font-satoshi text-text-detail tracking-[-1.2px]">
+        <h2 className="text-2xl font-bold font-satoshi dark:text-white text-text-detail tracking-[-1.2px]">
           Trending News
         </h2>
         <Link
           href="/news"
-          className="flex items-center text-base font-bold font-satoshi text-text-detail hover:text-primary transition-colors border-b border-text-detail"
+          className="flex items-center dark:text-white text-base font-bold font-satoshi text-text-detail hover:text-primary transition-colors dark:border-[#D7B5F5] border-b border-text-detail"
         >
           See All News
           <ArrowUpRightIcon className="w-5 h-6" />
@@ -56,7 +56,7 @@ export function RelatedArticles({ articles }: RelatedArticlesProps) {
       </div>
 
       <div className="hidden lg:flex items-center justify-between w-full">
-        <h2 className="text-2xl font-bold font-satoshi text-text-detail tracking-[-1.2px]">
+        <h2 className="text-2xl font-bold font-satoshi dark:text-white text-text-detail tracking-[-1.2px]">
           See More
         </h2>
         <div className="flex items-center gap-4">
@@ -65,12 +65,12 @@ export function RelatedArticles({ articles }: RelatedArticlesProps) {
             disabled={currentPage === 0}
             className={`flex items-center justify-center gap-[3.333px] pr-[13.333px] pl-[10px] py-[10px] rounded-[83.333px] transition-colors ${
               currentPage === 0
-                ? "border-[0.833px] border-black opacity-50 cursor-not-allowed"
+                ? "border-[0.833px] dark:border-white border-black opacity-50 cursor-not-allowed"
                 : "bg-primary hover:bg-primary/90"
             }`}
           >
             <ChevronLeftIcon
-              className={`w-5 h-5 ${
+              className={`w-5 h-5 dark:text-white ${
                 currentPage === 0 ? "text-black" : "text-white"
               }`}
             />
@@ -80,12 +80,12 @@ export function RelatedArticles({ articles }: RelatedArticlesProps) {
             disabled={currentPage === totalPages - 1}
             className={`flex items-center justify-center gap-[3.333px] pl-[13.333px] pr-[10px] py-[10px] rounded-[83.333px] transition-colors ${
               currentPage === totalPages - 1
-                ? "border-[0.833px] border-black opacity-50 cursor-not-allowed"
+                ? "border-[0.833px] dark:border-white border-black opacity-50 cursor-not-allowed"
                 : "bg-primary hover:bg-primary/90"
             }`}
           >
             <ChevronRightIcon
-              className={`w-5 h-5 ${
+              className={`w-5 h-5 dark:text-white ${
                 currentPage === totalPages - 1 ? "text-black" : "text-white"
               }`}
             />

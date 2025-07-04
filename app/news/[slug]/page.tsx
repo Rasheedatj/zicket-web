@@ -20,39 +20,43 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
   const relatedArticles = allArticles.filter((card) => card.slug !== slug);
 
   return (
-    <div className="min-h-screen bg-white w-full max-w-[1200px] mx-auto dark:bg-black flex flex-col">
+    <div className="min-h-screen bg-white w-full max-w-[1200px] mx-auto dark:bg-transparent flex flex-col">
       <header className="px-10 py-20 gap-10 w-full flex flex-col items-center justify-center">
         <nav className="flex w-full items-center justify-center gap-2 text-sm font-inter font-medium leading-[145%] max-w-full overflow-hidden">
           <Link
             href="/news"
-            className="hover:text-purple-600 transition-colors whitespace-nowrap text-text-detail"
+            className="hover:text-purple-600 transition-colors whitespace-nowrap text-text-detail dark:text-text-detail-dark"
           >
             News
           </Link>
-          <span className="whitespace-nowrap text-gray-500">/</span>
+          <span className="whitespace-nowrap text-gray-500 dark:text-[#D7B5F5]">
+            /
+          </span>
           <Link
             href={`/news?category=${encodeURIComponent(article.category)}`}
-            className="hover:text-purple-600  transition-colors whitespace-nowrap text-text-detail"
+            className="hover:text-purple-600  transition-colors whitespace-nowrap text-text-detail dark:text-text-detail-dark"
           >
             {article.category}
           </Link>
-          <span className="whitespace-nowrap text-gray-500">/</span>
-          <span className="text-gray-500 truncate min-w-0">
+          <span className="whitespace-nowrap text-gray-500 dark:text-[#D7B5F5]">
+            /
+          </span>
+          <span className="text-gray-500 dark:text-[#D7B5F5] truncate min-w-0">
             {article.title}
           </span>
         </nav>
         <div className="flex flex-col items-center justify-center gap-4 md:max-w-lg break-words">
-          <h3 className="text-base font-semibold text-primary leading-normal font-inter uppercase">
+          <h3 className="text-base font-semibold text-primary leading-normal font-inter uppercase dark:text-[#D7B5F5]">
             {article.category}
           </h3>
 
-          <h1 className="text-[40px] font-bold font-satoshi md:font-inter text-black text-center leading-normal">
+          <h1 className="text-[40px] font-bold font-satoshi md:font-inter text-black dark:text-[#D7B5F5] text-center leading-normal">
             {article.title}
           </h1>
         </div>
 
         <div className="flex flex-col items-center justify-center gap-3">
-          <p className="text-black font-satoshi md:font-inter text-base font-light leading-normal">
+          <p className="text-black dark:text-[#D7B5F5] font-satoshi md:font-inter text-base font-light leading-normal">
             {article.date}
           </p>
 
@@ -67,7 +71,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
               />
             </div>
 
-            <span className="text-dark-gray font-inter text-sm font-medium leading-normal">
+            <span className="text-dark-gray dark:text-[#D7B5F5] font-inter text-sm font-medium leading-normal">
               {article.author.name}
             </span>
           </div>
@@ -84,7 +88,7 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
           />
         </div>
 
-        <p className="text-black font-satoshi md:font-inter text-base text-left font-normal leading-normal">
+        <p className="text-black dark:text-[#5C6170] font-satoshi md:font-inter text-base text-left font-normal leading-normal">
           {article.excerpt}
         </p>
       </div>
@@ -92,13 +96,13 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
         <div className="space-y-15  w-full">
           {article.contentSections?.map((section, index) => (
             <div key={index}>
-              <h2 className="text-lg md:text-2xl mb-5 font-bold font-satoshi md:font-inter text-black leading-normal">
+              <h2 className="text-lg md:text-2xl mb-5 font-bold font-satoshi md:font-inter text-black dark:text-[#D7B5F5] leading-normal">
                 {section.heading}
               </h2>
               {section.paragraphs.map((paragraph, pIndex) => (
                 <p
                   key={pIndex}
-                  className="text-black font-satoshi md:font-inter leading-normal text-base font-normal"
+                  className="text-[#5C6170] font-satoshi md:font-inter leading-normal text-base font-normal"
                 >
                   {paragraph}
                 </p>
