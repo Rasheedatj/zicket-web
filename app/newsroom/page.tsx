@@ -254,7 +254,7 @@ export default function NewsroomPage() {
               key={i}
               className={`w-8 h-8 rounded-md mx-1 flex items-center justify-center text-sm transition-all
                 ${page === i + 1
-                  ? "bg-[#9747FF] text-white"
+                  ? "bg-[#6917AF] text-white"
                   : "bg-[#F4EBFF] text-[#9747FF]"}
               `}
               onClick={() => setPage(i + 1)}
@@ -263,14 +263,14 @@ export default function NewsroomPage() {
             </button>
           ))}
           <button
-            className="px-4 py-2 rounded-md mx-1 text-sm bg-[#F4EBFF] text-[#9747FF] transition-all disabled:opacity-50"
+            className="px-4 py-2 rounded-md mx-1 text-sm bg-[#FAFAFA] text-black transition-all cursor-pointer"
             onClick={() => setPage(Math.min(totalPages, page + 1))}
             disabled={page === totalPages}
           >
             Next
           </button>
           <button
-            className="px-4 py-2 rounded-md mx-1 text-sm bg-[#F4EBFF] text-[#9747FF] transition-all disabled:opacity-50"
+            className="px-4 py-2 rounded-md mx-1 text-sm bg-[#FAFAFA] text-black transition-all cursor-pointer"
             onClick={() => setPage(totalPages)}
             disabled={page === totalPages}
           >
