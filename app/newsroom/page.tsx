@@ -133,7 +133,11 @@ export default function NewsroomPage() {
           </form>
           <Button
             type="submit"
-            className="rounded-full bg-[#9747FF] hover:bg-[#6917AF] text-white px-8 py-3 font-semibold mb-4 shadow-md"
+            className="rounded-full px-4 py-6 mb-4 shadow-md border border-[#BF37DA] text-white text-lg"
+            style={{
+              background: "linear-gradient(90deg, #5E4BF3 0%, #9109D0 100%)",
+              boxShadow: "0 4px 16px 0 rgba(94, 75, 243, 0.15)",
+            }}
           >
             Subscribe!
           </Button>
