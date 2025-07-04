@@ -6,6 +6,7 @@ import { EmptyStateIcon, ArrowRightIcon } from "@/public/svg/svg";
 import CustomDropdown from "./CustomDropdown";
 import { dummyEvents } from "@/lib/dummyEvents/events";
 import SkeletonCard from "./SkeletonCard";
+import { Filter } from "lucide-react";
 
 
 function MainContent() {
@@ -17,6 +18,12 @@ function MainContent() {
   const [selectedEventType, setSelectedEventType] = useState<string | null>(null);
   const [showCount, setShowCount] = useState(8);
   const [loading, setLoading] = useState(false);
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [mobilePrivacy, setMobilePrivacy] = useState<string | null>(selectedPrivacy);
+  const [mobilePrice, setMobilePrice] = useState<string | null>(selectedPrice);
+  const [mobileDate, setMobileDate] = useState<string | null>(selectedDate);
+  const [mobileEventType, setMobileEventType] = useState<string | null>(selectedEventType);
+  const [mobileLocation, setMobileLocation] = useState<string | null>(selectedLocation);
 
   const privacyOptions = [
     "Anonymous",
@@ -110,6 +117,22 @@ function MainContent() {
 
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: "smooth" });
 
+  const handleMobileApply = () => {
+    setSelectedPrivacy(mobilePrivacy);
+    setSelectedPrice(mobilePrice);
+    setSelectedDate(mobileDate);
+    setSelectedEventType(mobileEventType);
+    setSelectedLocation(mobileLocation);
+    setDrawerOpen(false);
+  };
+  const handleMobileClear = () => {
+    setMobilePrivacy(null);
+    setMobilePrice(null);
+    setMobileDate(null);
+    setMobileEventType(null);
+    setMobileLocation(null);
+  };
+
   useEffect(() => {
     setLoading(true);
     const timer = setTimeout(() => setLoading(false), 1000);
@@ -118,7 +141,8 @@ function MainContent() {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4">
-      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2 border-t border-b border-t-[#F0F2F5] border-b-[#F0F2F5] py-2">
+      {/* Filtros desktop/tablet */}
+      <div className="hidden sm:flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2 border-t border-b border-t-[#F0F2F5] border-b-[#F0F2F5] py-2">
         <div className="flex flex-wrap items-center gap-2 text-sm w-full md:w-auto">
           <span className="font-medium text-[#7C3AED] mr-1">Filters:</span>
           {filterConfigs.map(f => (
@@ -142,7 +166,72 @@ function MainContent() {
           />
         </div>
       </div>
-      <div className="flex flex-wrap items-center justify-between gap-2 mb-4 mt-1 w-full min-h-[32px]">
+      {/* Filtros mobile */}
+      <div className="flex sm:hidden items-center justify-between mb-4">
+        <span className="font-bold text-lg text-[#2C0A4A]">Filter by:</span>
+        <button
+          className="rounded-full"
+          onClick={() => setDrawerOpen(true)}
+          aria-label="Open filters"
+        >
+          <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="20" cy="20" r="17" stroke="#181F36" strokeWidth="3" />
+            <rect x="12" y="15" width="16" height="2.5" rx="1.25" fill="#181F36" />
+            <rect x="14" y="20" width="12" height="2.5" rx="1.25" fill="#181F36" />
+            <rect x="16" y="25" width="8" height="2.5" rx="1.25" fill="#181F36" />
+          </svg>
+        </button>
+      </div>
+      {/* Drawer mobile */}
+      {drawerOpen && (
+        <>
+          <div className="fixed inset-0 bg-black bg-opacity-30 z-40" onClick={() => setDrawerOpen(false)} />
+          <div className="fixed right-0 top-0 h-full w-11/12 max-w-xs bg-white shadow-lg p-6 flex flex-col z-50">
+            <div className="flex items-center justify-between mb-4">
+              <span className="font-bold text-lg text-[#2C0A4A]">Filters</span>
+              <button onClick={() => setDrawerOpen(false)} aria-label="Close filters">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6 6L18 18" stroke="#2C0A4A" strokeWidth="2" strokeLinecap="round"/>
+                  <path d="M6 18L18 6" stroke="#2C0A4A" strokeWidth="2" strokeLinecap="round"/>
+                </svg>
+              </button>
+            </div>
+            <div className="flex flex-col gap-4 flex-1 overflow-y-auto min-h-0">
+              {filterConfigs.map(f => (
+                <div key={f.key}>
+                  <CustomDropdown
+                    label={f.label}
+                    options={f.options}
+                    value={
+                      f.key === 'privacy' ? mobilePrivacy :
+                      f.key === 'price' ? mobilePrice :
+                      f.key === 'location' ? mobileLocation :
+                      f.key === 'date' ? mobileDate :
+                      f.key === 'eventType' ? mobileEventType :
+                      ''
+                    }
+                    onChange={
+                      f.key === 'privacy' ? setMobilePrivacy :
+                      f.key === 'price' ? setMobilePrice :
+                      f.key === 'location' ? setMobileLocation :
+                      f.key === 'date' ? setMobileDate :
+                      f.key === 'eventType' ? setMobileEventType :
+                      () => {}
+                    }
+                    fullWidthOptions
+                  />
+                </div>
+              ))}
+            </div>
+            <div className="flex gap-2 mt-6 pt-4 bg-white sticky bottom-0 left-0 right-0">
+              <button className="flex-1 py-2 rounded bg-[#7C3AED] text-white font-bold" onClick={handleMobileApply}>Apply</button>
+              <button className="flex-1 py-2 rounded border border-[#7C3AED] text-[#7C3AED] font-bold" onClick={handleMobileClear}>Clear</button>
+            </div>
+          </div>
+        </>
+      )}
+      {/* Chips y showing solo en desktop/tablet */}
+      <div className="hidden sm:flex flex-wrap items-center justify-between gap-2 mb-4 mt-1 w-full min-h-[32px]">
         <div className="flex flex-wrap gap-2 min-h-[28px]">
           {filterConfigs.map(f => f.value && (
             <span key={f.key} className="gap-2 justify-between align-center px-2 rounded-[8px] border border-[#7C3AED] text-[#6B7280] bg-white flex items-center text-base font-semibold h-7">
@@ -205,13 +294,6 @@ function MainContent() {
               <span>
                 {filteredEvents.length > showCount ? "Show more" : "Show less"}
               </span>
-              <div
-                className={`$ {
-                  filteredEvents.length > showCount ? "-rotate-90" : "-rotate-270"
-                } transform`}
-              >
-                <ArrowRightIcon isActive={false} />
-              </div>
             </button>
             <button
               onClick={scrollToTop}

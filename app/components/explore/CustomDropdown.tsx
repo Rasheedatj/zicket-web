@@ -7,9 +7,10 @@ interface CustomDropdownProps {
   value: string | null;
   onChange: (val: string | null) => void;
   showAllLabel?: string;
+  fullWidthOptions?: boolean;
 }
 
-const CustomDropdown: React.FC<CustomDropdownProps> = ({ label, options, value, onChange, showAllLabel = 'Show All' }) => {
+const CustomDropdown: React.FC<CustomDropdownProps> = ({ label, options, value, onChange, showAllLabel = 'Show All', fullWidthOptions }) => {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
@@ -36,10 +37,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ label, options, value, 
         </span>
       </button>
       {open && (
-        <div className="absolute left-0 mt-1 min-w-[146px] bg-white border border-[#E5E7EB] rounded shadow z-10"
-          onMouseEnter={() => setOpen(true)}
-          onMouseLeave={() => setOpen(false)}
-        >
+        <div className={`absolute left-0 mt-1 bg-white border border-[#E5E7EB] rounded shadow z-10 ${fullWidthOptions ? 'w-full' : 'min-w-[146px]'}`}>
           <ul className="py-1">
             <li>
               <button
