@@ -192,8 +192,8 @@ export default function NewsroomPage() {
           {categories.map((cat) => (
             <button
               key={cat}
-              className={`px-5 py-2 rounded-full border font-medium text-sm transition-all ${selectedCategory === cat
-                  ? "bg-[#9747FF] text-white border-[#9747FF]"
+              className={`px-5 py-2 rounded-full border font-semibold text-sm transition-all ${selectedCategory === cat
+                  ? "bg-[#6917AF] text-white border-[#9747FF]"
                   : "bg-white text-[#6917AF] border-[#9747FF] dark:bg-[#232323] dark:text-[#D7B5F5]"
                 }`}
               onClick={() => {
