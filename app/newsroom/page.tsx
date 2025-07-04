@@ -187,7 +187,7 @@ export default function NewsroomPage() {
         </section>
 
         {/* Category Filter */}
-        <section className="w-full max-w-6xl flex flex-wrap gap-3 mb-8 justify-center">
+        <section className="w-full max-w-6xl flex flex-wrap gap-3 mb-8">
           {categories.map((cat) => (
             <button
               key={cat}
