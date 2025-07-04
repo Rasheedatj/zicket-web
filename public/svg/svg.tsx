@@ -323,7 +323,7 @@ export const LocationIcon = () => (
     />
   </svg>
 );
-export const ArrowRightIcon = () => (
+export const ArrowRightIcon = ({ isActive = true }: { isActive?: boolean }) => (
   <svg
     width={25}
     height={24}
@@ -333,7 +333,7 @@ export const ArrowRightIcon = () => (
   >
     <path
       d="M9.7415 6.07269C9.7415 6.07269 15.6788 10.4455 15.6788 12.0101C15.6788 13.5748 9.74146 17.9475 9.74146 17.9475"
-      stroke="#2C0A4A"
+      stroke={isActive ? "#7C3AED" : "#6B7280"}
       strokeWidth="1.48434"
       strokeLinecap="round"
       strokeLinejoin="round"
