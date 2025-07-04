@@ -157,7 +157,7 @@ export default function NewsroomPage() {
             </div>
           </div>
           <div className="flex-1 min-w-[280px] flex flex-col justify-center gap-4">
-            <span className="uppercase text-xs font-semibold text-[#9747FF] tracking-widest">
+            <span className="uppercase text-xs font-bold text-[#6917AF] tracking-wider">
               Announcements
             </span>
             <h2 className="text-xl md:text-2xl font-bold text-black dark:text-white">
