@@ -249,20 +249,13 @@ export default function NewsroomPage() {
 
         {/* Pagination */}
         <section className="flex gap-2 mb-16 items-center justify-center">
-          <button
-            className={`px-4 py-2 rounded-full font-semibold transition-all text-[#9747FF] bg-[#E9D7FE] hover:bg-[#D6BBFB] disabled:opacity-50 border-0`}
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
-            disabled={page === 1}
-          >
-            Previous
-          </button>
           {[...Array(totalPages)].map((_, i) => (
             <button
               key={i}
-              className={`w-8 h-8 rounded-full flex items-center justify-center font-semibold transition-all mx-0.5
+              className={`w-8 h-8 rounded-md mx-1 flex items-center justify-center text-sm transition-all
                 ${page === i + 1
-                  ? "bg-[#9747FF] text-white border-0"
-                  : "bg-[#E9D7FE] text-[#9747FF] border-0 hover:bg-[#D6BBFB]"}
+                  ? "bg-[#9747FF] text-white"
+                  : "bg-[#F4EBFF] text-[#9747FF]"}
               `}
               onClick={() => setPage(i + 1)}
             >
@@ -270,14 +263,14 @@ export default function NewsroomPage() {
             </button>
           ))}
           <button
-            className={`px-4 py-2 rounded-full font-semibold transition-all text-[#9747FF] bg-[#E9D7FE] hover:bg-[#D6BBFB] disabled:opacity-50 border-0`}
-            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            className="px-4 py-2 rounded-md mx-1 text-sm bg-[#F4EBFF] text-[#9747FF] transition-all disabled:opacity-50"
+            onClick={() => setPage(Math.min(totalPages, page + 1))}
             disabled={page === totalPages}
           >
             Next
           </button>
           <button
-            className={`px-4 py-2 rounded-full font-semibold transition-all text-[#9747FF] bg-[#E9D7FE] hover:bg-[#D6BBFB] ml-2 border-0`}
+            className="px-4 py-2 rounded-md mx-1 text-sm bg-[#F4EBFF] text-[#9747FF] transition-all disabled:opacity-50"
             onClick={() => setPage(totalPages)}
             disabled={page === totalPages}
           >
