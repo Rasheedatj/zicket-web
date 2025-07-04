@@ -211,7 +211,7 @@ export default function NewsroomPage() {
           {paginated.map((card, idx) => (
             <div
               key={idx}
-              className="bg- dark:bg-[#181818] flex flex-col overflow-hidden cursor-pointer hover:border hover:border-[#E0E0E0] dark:border-[#282828] hover:rounded-2xl hover:shadow-sm"
+              className="bg-white rounded-2xl dark:bg-[#181818] flex flex-col overflow-hidden cursor-pointer hover:border hover:border-[#E0E0E0] dark:border-[#282828] hover:rounded-2xl hover:shadow-sm"
             >
               <div className="relative w-full h-44 md:h-52">
                 <Image
