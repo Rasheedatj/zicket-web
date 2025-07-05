@@ -1,32 +1,20 @@
-import type { Article, ContentSection } from "./types";
+import type { Article } from "./types";
 
-interface NewsCard {
-  id: string;
-  slug: string;
-  genre: string;
-  date: string;
-  title: string;
-  subject: string;
-  author: string;
-  avatar: string;
-  image: string;
-  readTime: string;
-  content: string;
-  contentSections?: ContentSection[];
-  featured: boolean;
-}
-
-export const newsCards: NewsCard[] = [
+export const articles: Article[] = [
   {
     id: "1",
     slug: "zicket-builders-hack-night-recap",
-    genre: "Tech",
+    category: "Tech",
     date: "30 June, 2024",
     title: "Zicket X Builders: A Hack Night Recap",
-    subject:
+    excerpt:
       "The Zicket X Builders Hack Night brought together developers, designers, and product thinkers for an evening of hands-on collaboration, innovation, and community building. From lightning talks to real-world challenges, the event showcased the power of privacy-first event technology and set the stage for future gatherings.",
-    author: "ZKC Node",
-    avatar: "/images/avatar1.jpg",
+    author: {
+      id: "1",
+      name: "ZKC Node",
+      title: "Engineering Team",
+      avatar: "/images/avatar1.jpg",
+    },
     image: "/images/News1.jpg",
     readTime: "4 min read",
     content: "",
@@ -59,13 +47,17 @@ export const newsCards: NewsCard[] = [
   {
     id: "2",
     slug: "designing-for-private-discovery",
-    genre: "Behind the Scenes",
+    category: "Behind the Scenes",
     date: "25 June, 2024",
     title: "Designing for Private Discovery",
-    subject:
+    excerpt:
       "Designing for Private Discovery explores how Zicket reimagines event search and recommendations for privacy-first communities. By leveraging zero-knowledge proofs and contextual search, we empower users to find relevant events without compromising their personal data or identity.",
-    author: "Studio Delta",
-    avatar: "/images/avatar2.jpg",
+    author: {
+      id: "2",
+      name: "Studio Delta",
+      title: "Design Team",
+      avatar: "/images/avatar2.jpg",
+    },
     image: "/images/News2.jpg",
     readTime: "6 min read",
     content: "",
@@ -99,13 +91,17 @@ export const newsCards: NewsCard[] = [
   {
     id: "3",
     slug: "onedrop-format-explained",
-    genre: "Community",
+    category: "Community",
     date: "20 June, 2024",
     title: "OneDrop Format Explained",
-    subject:
+    excerpt:
       "OneDrop Format Explained delves into the creation of rapid, high-trust gatherings for web3 communities. Discover how OneDrop enables spontaneous, secure events and fosters deeper connections through trust-driven participation.",
-    author: "Indie Venue Club",
-    avatar: "/images/avatar3.jpg",
+    author: {
+      id: "3",
+      name: "Indie Venue Club",
+      title: "Community Team",
+      avatar: "/images/avatar3.jpg",
+    },
     image: "/images/News-3.jpg",
     readTime: "3 min read",
     content: "",
@@ -137,14 +133,18 @@ export const newsCards: NewsCard[] = [
   {
     id: "4",
     slug: "early-adopters-zicket-exclusive-events",
-    genre: "Announcements",
+    category: "Announcements",
     date: "December 7, 2022",
     title:
       "How early adopters used Zicket to host 12 exclusive events in 3 cities.",
-    subject:
+    excerpt:
       "This case study highlights how early adopters leveraged Zicket's privacy-first platform to organize a series of exclusive events across multiple cities. Learn how they overcame logistical challenges and built lasting community engagement through secure, seamless event management.",
-    author: "ZKC Node",
-    avatar: "/images/avatar1.jpg",
+    author: {
+      id: "1",
+      name: "ZKC Node",
+      title: "Engineering Team",
+      avatar: "/images/avatar1.jpg",
+    },
     image: "/images/News1.jpg",
     readTime: "5 min read",
     content: "",
@@ -178,13 +178,17 @@ export const newsCards: NewsCard[] = [
   {
     id: "5",
     slug: "zk-access-control-what-we-learned",
-    genre: "Tech & Infrastructure",
+    category: "Tech & Infrastructure",
     date: "December 1, 2022",
     title: "ZK and Access Control: What We've Learned",
-    subject:
+    excerpt:
       "In the current digital landscape, privacy is no longer a luxury — it's an expectation. As more systems move on-chain, the transparency that blockchain offers begins to clash with users' desire for discretion. At Zicket, we've made it our mission to challenge this tension, especially within the event space. Ticketing, at its core, is about access — to spaces, ideas, people, and moments. Yet the way most platforms manage access today is both invasive and outdated. This is why we've been building on Aztec's privacy-first infrastructure, leveraging zero-knowledge proofs (ZKPs) to reshape the foundation of event verification. What follows is a detailed account of what we've learned so far and how ZK is changing the way we think about event participation, access rights, and anonymity.",
-    author: "Studio Delta",
-    avatar: "/images/avatar2.jpg",
+    author: {
+      id: "2",
+      name: "Studio Delta",
+      title: "Design Team",
+      avatar: "/images/avatar2.jpg",
+    },
     image: "/images/News2.jpg",
     readTime: "8 min read",
     content: "",
@@ -230,13 +234,17 @@ export const newsCards: NewsCard[] = [
   {
     id: "6",
     slug: "designing-for-discretion",
-    genre: "Product",
+    category: "Product",
     date: "15 May, 2024",
     title: "Designing for Discretion",
-    subject:
+    excerpt:
       "Designing for Discretion reveals the insights and strategies behind Zicket's approach to privacy-first event platforms. See how user research, adaptive privacy controls, and community feedback shaped a product that meets the unique needs of privacy-conscious groups.",
-    author: "Indie Venue Club",
-    avatar: "/images/avatar3.jpg",
+    author: {
+      id: "3",
+      name: "Indie Venue Club",
+      title: "Community Team",
+      avatar: "/images/avatar3.jpg",
+    },
     image: "/images/News-3.jpg",
     readTime: "5 min read",
     content: "",
@@ -268,13 +276,17 @@ export const newsCards: NewsCard[] = [
   {
     id: "7",
     slug: "pop-ups-go-private",
-    genre: "Events",
+    category: "Events",
     date: "10 May, 2024",
     title: "Pop-Ups Go Private",
-    subject:
+    excerpt:
       "Pop-Ups Go Private uncovers how Zicket is reinventing spontaneous events for the web3 era. Explore the technical innovations and real-world success stories that make private pop-ups secure, exclusive, and effortless to organize.",
-    author: "ZKC Node",
-    avatar: "/images/avatar1.jpg",
+    author: {
+      id: "1",
+      name: "ZKC Node",
+      title: "Engineering Team",
+      avatar: "/images/avatar1.jpg",
+    },
     image: "/images/News1.jpg",
     readTime: "4 min read",
     content: "",
@@ -306,35 +318,6 @@ export const newsCards: NewsCard[] = [
     featured: false,
   },
 ];
-
-export const articles: Article[] = newsCards.map((card) => ({
-  id: card.id,
-  slug: card.slug,
-  title: card.title,
-  excerpt: card.subject,
-  content: card.content,
-  contentSections: card.contentSections,
-  category: card.genre,
-  date: card.date,
-  readTime: card.readTime,
-  image: card.image,
-  author: {
-    id: card.id,
-    name: card.author,
-    title: getAuthorTitle(card.author),
-    avatar: card.avatar,
-  },
-  featured: card.featured,
-}));
-
-function getAuthorTitle(authorName: string): string {
-  const titleMap: { [key: string]: string } = {
-    "ZKC Node": "Engineering Team",
-    "Studio Delta": "Design Team",
-    "Indie Venue Club": "Community Team",
-  };
-  return titleMap[authorName] || "Team Member";
-}
 
 export const categories = [
   "All",
