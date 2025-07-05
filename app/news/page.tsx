@@ -2,82 +2,12 @@
 import Image from "next/image";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-// import { NewsCard } from "@/app/components/NewsCard";
-// import { articles } from "@/lib/data";
+import { articles } from "@/lib/data";
 import React from "react";
+import Link from "next/link";
 
-const categories = [
-  "All",
-  "Announcements",
-  "Community",
-  "Product Updates",
-  "Events",
-  "Behind the Scenes",
-  "Tech & ZK",
-];
-
-const articles = [
-  {
-    genre: "Tech",
-    date: "03 June, 2025",
-    title: "Zicket x Builders: A Hack Night Recap",
-    subject: "How the dev crowd used Zicket for a private demo series.",
-    author: "ZKC Node",
-    avatar: "/images/avatar1.jpg",
-    image: "/images/News1.jpg",
-    category: "Tech & ZK",
-  },
-  {
-    genre: "Ecosystem",
-    date: "03 June, 2025",
-    title: "CircleDrop Format Explained",
-    subject: "Smaller, faster events for high-trust groups.",
-    author: "Indie Venue Club",
-    avatar: "/images/avatar3.jpg",
-    image: "/images/News-3.jpg",
-    category: "Community",
-  },
-  {
-    genre: "Behind the Scenes",
-    date: "03 June, 2025",
-    title: "Designing for Private Discovery",
-    subject: "Why our interface hides what doesn't matter.",
-    author: "Studio Delta",
-    avatar: "/images/avatar2.jpg",
-    image: "/images/News2.jpg",
-    category: "Behind the Scenes",
-  },
-  {
-    genre: "Product",
-    date: "03 June, 2025",
-    title: "Designing for Discretion",
-    subject: "How we built Zicket around the needs of privacy-first communities.",
-    author: "Layer4",
-    avatar: "/images/avatar1.jpg",
-    image: "/images/News1.jpg",
-    category: "Product Updates",
-  },
-  {
-    genre: "Events",
-    date: "03 June, 2025",
-    title: "Pop-Ups Go Private",
-    subject: "How food collectives are using Zicket to run RSVP-only tasting.",
-    author: "The Table Crew",
-    avatar: "/images/avatar2.jpg",
-    image: "/images/News2.jpg",
-    category: "Events",
-  },
-  {
-    genre: "Tech",
-    date: "03 June, 2025",
-    title: "ZK and Access Control: What We've Learned",
-    subject: "Using Aztec to gate entry, not just visibility.",
-    author: "ProofLayer",
-    avatar: "/images/avatar3.jpg",
-    image: "/images/News-3.jpg",
-    category: "Tech & ZK",
-  },
-];
+// Get unique categories from articles
+const categories = ["All", ...Array.from(new Set(articles.map(article => article.category)))];
 
 const ANNOUNCEMENT = {
   title: "How early adopters used Zicket to host 12 exclusive events in 3 cities.",
@@ -211,42 +141,39 @@ export default function NewsPage() {
 
         {/* Articles Grid */}
         <section className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-          {paginated.map((card, idx) => (
-            <div
-              key={idx}
-              className="bg-white rounded-2xl dark:bg-[#181818] flex flex-col overflow-hidden cursor-pointer hover:border hover:border-[#E0E0E0] dark:border-[#282828] hover:rounded-2xl hover:shadow-sm"
-            >
+          {paginated.map((article, idx) => (
+            <Link href={`/news/${article.slug}`} key={article.id} className="bg-white rounded-2xl dark:bg-[#181818] flex flex-col overflow-hidden cursor-pointer hover:border hover:border-[#E0E0E0] dark:border-[#282828] hover:rounded-2xl hover:shadow-sm">
               <div className="relative w-full h-44 md:h-52">
                 <Image
-                  src={card.image}
-                  alt={card.title}
+                  src={article.image}
+                  alt={article.title}
                   fill
                   className="object-cover"
                 />
               </div>
               <div className="px-5 py-6 flex flex-col gap-2.5 flex-1">
                 <p className="text-xs text-[#5C6170]">
-                  {card.genre} - {card.date}
+                  {article.category} - {article.date}
                 </p>
                 <p className="font-bold text-base md:text-lg text-black dark:text-[#D7B5F5]">
-                  {card.title}
+                  {article.title}
                 </p>
-                <p className="text-xs text-[#5C6170]">{card.subject}</p>
+                <p className="text-xs text-[#5C6170] line-clamp-3">{article.excerpt}</p>
               </div>
               <div className="px-5 pb-5 flex items-center gap-3">
                 <div className="relative w-6 h-6">
                   <Image
-                    src={card.avatar}
-                    alt={card.author}
+                    src={article.author.avatar}
+                    alt={article.author.name}
                     fill
                     className="rounded-full object-cover"
                   />
                 </div>
                 <span className="text-sm text-[#1E1E1E] dark:text-[#D7B5F5] font-medium">
-                  {card.author}
+                  {article.author.name}
                 </span>
               </div>
-            </div>
+            </Link>
           ))}
         </section>
 
