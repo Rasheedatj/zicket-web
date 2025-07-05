@@ -1,6 +1,5 @@
 // import { Header } from "./newComponents/header"
 import { HeroSection } from "./newComponents/hero-section";
-import { TrustIndicators } from "./newComponents/trust-indicators";
 import { HowItWorks } from "./newComponents/how-it-works";
 import { NoSignupsSection } from "./newComponents/no-signups-section";
 import { TrendingEvents } from "./newComponents/trending-events";
@@ -15,7 +14,6 @@ export default function HomePage() {
     <div className="min-h-screen bg-[#f6f0fb]">
       {/* <Header /> */}
       <HeroSection />
-      {/* <TrustIndicators /> */}
       <HowItWorks />
       <NoSignupsSection />
       <TrendingEvents />

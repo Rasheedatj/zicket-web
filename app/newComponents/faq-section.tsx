@@ -1,13 +1,12 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
+import { Minus, Plus } from "lucide-react";
 import { Card } from "@/components/ui/card";
-import { ChevronDown, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
 import { useState } from "react";
 
 export function FAQSection() {
-  const [openItem, setOpenItem] = useState<number | null>(null); // All items closed by default
-
+  const [openItem, setOpenItem] = useState<number | null>(null);
   const faqs = [
     {
       question: "What makes Zicket unique?",
@@ -56,11 +55,15 @@ export function FAQSection() {
                 className="w-full flex justify-between items-center text-left"
               >
                 <h3 className="font-semibold">{faq.question}</h3>
-                <ChevronDown
-                  className={`w-5 h-5 text-purple-600 transition-transform duration-200 ${
-                    openItem === index ? "rotate-180" : ""
-                  }`}
-                />
+                {openItem === index ? (
+                  <span className="flex items-center bg-[#6917AF] rounded-full p-1">
+                    <Minus className="w-5 h-5 text-white transition-transform duration-200" />
+                  </span>
+                ) : (
+                  <span className="flex items-center bg-[#6917AF] rounded-full p-1">
+                    <Plus className="w-5 h-5 text-white transition-transform duration-200" />
+                  </span>
+                )}
               </button>
               {openItem === index && (
                 <div className="mt-4 overflow-hidden">
@@ -74,7 +77,7 @@ export function FAQSection() {
         </div>
         <div className="text-center mt-8">
           <button className="mt-16 mx-auto flex border border-[#2C0A4A] rounded-full py-2 px-3 text-[#2C0A4a] cursor-pointer">
-            View More <ArrowUpRight w-5 h-5 />
+            View More <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>
       </div>

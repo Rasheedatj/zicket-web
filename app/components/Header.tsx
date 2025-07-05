@@ -132,7 +132,7 @@ function Header() {
                 {isAnonymous ? "ON" : "OFF"}
               </span>
             </div>
-            <button className="flex px-6 py-3 border bg-[#6917AF] text-white rounded-full font-bold">
+            <button className="flex px-6 py-3 bg-[#6917AF] text-white rounded-full font-bold">
               Host Event
               <ArrowUpRight w-5 h-5 />
             </button>

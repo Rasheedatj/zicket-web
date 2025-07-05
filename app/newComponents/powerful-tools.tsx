@@ -1,3 +1,4 @@
+import Image from "next/image";
 import {
   BarChart3,
   Calendar,
@@ -9,17 +10,18 @@ import {
   Shield,
   ArrowUpRight,
 } from "lucide-react";
+import { image } from "framer-motion/client";
 
 export function PowerfulTools() {
   const tools = [
-    { icon: BarChart3, title: "Weekly Event Reports" },
-    { icon: Calendar, title: "Custom Calendars" },
-    { icon: Zap, title: "Quick Registration" },
-    { icon: Users, title: "Team Analytics" },
-    { icon: Settings, title: "Advanced Settings" },
-    { icon: Globe, title: "Multi-Event" },
-    { icon: Lock, title: "Enhanced Privacy" },
-    { icon: Shield, title: "Secure Management" },
+    { image: "/Group.svg?height=200&width=300", title: "Weekly Event Reports" },
+    { image: "/Career.svg?height=200&width=300", title: "Custom Calendars" },
+    { image: "Art.svg?height=200&width=300", title: "Quick Registration" },
+    { image: "/Group (1).svg?height=200&width=300", title: "Team Analytics" },
+    { image: "/Wellness.svg?height=200&width=300", title: "Advanced Settings" },
+    { image: "/Vector.svg?height=200&width=300", title: "Multi-Event" },
+    { image: "/Workshop.svg?height=200&width=300", title: "Enhanced Privacy" },
+    { image: "/Event.svg?height=200&width=300", title: "Secure Management" },
   ];
 
   return (
@@ -41,9 +43,19 @@ export function PowerfulTools() {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-6xl mx-auto">
           {tools.map((tool, index) => (
-            <div key={index} className="text-center ">
-              <div className="w-[130px] h-[130px] flex justify-center items-center border border-[#797979] p-6 rounded-lg shadow-md hover:shadow-lg transition-shadow mx-auto mb-4">
-                <tool.icon className="w-15 h-15 text-[#6C6C6C]" />
+            <div key={index} className="text-center">
+              <div className="w-[130px] h-[130px] flex justify-center items-center border border-[#797979] rounded-lg shadow-md hover:shadow-lg transition-shadow mx-auto mb-4">
+                <Image
+                  width={60}
+                  height={60}
+                  src={
+                    typeof tool.image === "string"
+                      ? tool.image
+                      : "/placeholder.svg"
+                  }
+                  alt={tool.title}
+                  className="w-[60px] h-[60px] object-cover rounded-lg"
+                />
               </div>
               <h3 className="font-medium text-sm">{tool.title}</h3>
             </div>
