@@ -1,7 +1,7 @@
 import React from 'react'
-import HeroSection from '../components/about/HeroSection'
-import WhatIsZicket from '../components/about/WhatIsZicket'
-import WhyZicket from '../components/about/WhyZicket'
+import HeroSection from '../components/About/HeroSection'
+import WhatIsZicket from '../components/About/WhatIsZicket'
+import WhyZicket from '../components/About/WhyZicket'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 

@@ -20,7 +20,7 @@ function Header() {
         { name: 'About', href: '/about' },
         { name: 'How It Works', href: '/how-it-works' },
         { name: 'Docs', href: '/docs' },
-        { name: 'News', href: '/newsroom' },
+        { name: 'News', href: '/news' },
     ]
     const pathname = usePathname()
     return (
