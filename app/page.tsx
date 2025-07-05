@@ -1,21 +1,21 @@
 // import { Header } from "./newComponents/header"
-import { HeroSection } from "./newComponents/hero-section"
-import { TrustIndicators } from "./newComponents/trust-indicators"
-import { HowItWorks } from "./newComponents/how-it-works"
-import { NoSignupsSection } from "./newComponents/no-signups-section"
-import { TrendingEvents } from "./newComponents/trending-events"
-import { PowerfulTools } from "./newComponents/powerful-tools"
-import { FAQSection } from "./newComponents/faq-section"
-import { HostInPeace } from "./newComponents/host-in-peace"
-import { TrendingNews } from "./newComponents/trending-news"
+import { HeroSection } from "./newComponents/hero-section";
+import { TrustIndicators } from "./newComponents/trust-indicators";
+import { HowItWorks } from "./newComponents/how-it-works";
+import { NoSignupsSection } from "./newComponents/no-signups-section";
+import { TrendingEvents } from "./newComponents/trending-events";
+import { PowerfulTools } from "./newComponents/powerful-tools";
+import { FAQSection } from "./newComponents/faq-section";
+import { HostInPeace } from "./newComponents/host-in-peace";
+import { TrendingNews } from "./newComponents/trending-news";
 // import { Footer } from "@/components/footer"
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-[#f6f0fb]">
       {/* <Header /> */}
       <HeroSection />
-      <TrustIndicators />
+      {/* <TrustIndicators /> */}
       <HowItWorks />
       <NoSignupsSection />
       <TrendingEvents />
@@ -25,5 +25,5 @@ export default function HomePage() {
       <TrendingNews />
       {/* <Footer /> */}
     </div>
-  )
+  );
 }
