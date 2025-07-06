@@ -83,7 +83,6 @@ function Header() {
             Host Event
           </button>
         </div>
-
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden border-2 border-[#751AC6] rounded-lg p-3"
