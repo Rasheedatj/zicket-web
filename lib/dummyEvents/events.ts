@@ -1,12 +1,39 @@
-export const dummyEvents = [
+export type PrivacyLevel = "Anonymous" | "Verified Access" | "Wallet Required";
+export type EventType = "Music" | "Tech & Web3" | "Art & Culture" | "Business" | "Health & Wellness" | "Education" | "Community";
+
+export interface Event {
+  id: string;
+  title: string;
+  date: string;
+  time: string;
+  location: string;
+  type: EventType;
+  image: string;
+  description: string;
+  tags: string[];
+  perks: string[];
+  organizer: {
+    name: string;
+    bio: string;
+    contact: string;
+  };
+  slotsLeft: number;
+  quantitySelected: number;
+  isPaid: boolean;
+  price: number;
+  ticketTypes: string[];
+  privacyLevel: PrivacyLevel;
+}
+
+export const dummyEvents: Event[] = [
   {
     id: "solana-summer-hackathon",
     title: "Solana Summer Hackathon",
     date: "Jun. 04 2025",
     time: "4:00 pm (UTC +01:00)",
     location: "Accra, Ghana",
-    type: "Private",
-    image: "/images/solana.png",
+    type: "Music",
+    image: "/images/explore/1.png",
     description:
       "Join Africa’s brightest minds in blockchain and web3 at the Solana Summer Hackathon.",
     tags: ["Solana", "CryptoBuilders", "HackathonNG", "AccraTech"],
@@ -27,6 +54,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 25,
     ticketTypes: ["VIP", "Regular", "Student"],
+    privacyLevel: "Anonymous",
   },
   {
     id: "naija-tech-summit",
@@ -34,8 +62,8 @@ export const dummyEvents = [
     date: "Aug. 17 2025",
     time: "10:00 am (UTC +01:00)",
     location: "Lagos, Nigeria",
-    type: "Public",
-    image: "/images/naija-tech.png",
+    type: "Tech & Web3",
+    image: "/images/explore/2.png",
     description:
       "Nigeria’s biggest technology meetup featuring top innovators and startups.",
     tags: ["NaijaTech", "Developers", "Innovation"],
@@ -50,6 +78,7 @@ export const dummyEvents = [
     isPaid: false,
     price: 0,
     ticketTypes: ["General", "VIP"],
+    privacyLevel: "Verified Access",
   },
   {
     id: "web3-bootcamp-nairobi",
@@ -57,8 +86,8 @@ export const dummyEvents = [
     date: "Sep. 12 2025",
     time: "1:00 pm (UTC +03:00)",
     location: "Nairobi, Kenya",
-    type: "Private",
-    image: "/images/web3-nairobi.png",
+    type: "Art & Culture",
+    image: "/images/explore/3.png",
     description: "Learn Web3 dev from scratch with hands-on mentorship.",
     tags: ["Web3", "Bootcamp", "KenyaTech"],
     perks: ["Solidity workshops", "Mentorship", "Demo day", "Job onboarding"],
@@ -72,6 +101,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 15,
     ticketTypes: ["Student", "Regular"],
+    privacyLevel: "Wallet Required",
   },
   {
     id: "femcode-fest-2025",
@@ -79,8 +109,8 @@ export const dummyEvents = [
     date: "Oct. 05 2025",
     time: "11:00 am (UTC +01:00)",
     location: "Abuja, Nigeria",
-    type: "Public",
-    image: "/images/femcode.png",
+    type: "Business",
+    image: "/images/explore/4.png",
     description:
       "Empowering women in tech through talks, panels, and hands-on sessions.",
     tags: ["WomenInTech", "Nigeria", "Empowerment"],
@@ -95,6 +125,7 @@ export const dummyEvents = [
     isPaid: false,
     price: 0,
     ticketTypes: ["Free"],
+    privacyLevel: "Verified Access",
   },
   {
     id: "lagos-design-week",
@@ -102,8 +133,8 @@ export const dummyEvents = [
     date: "Nov. 20 2025",
     time: "9:00 am (UTC +01:00)",
     location: "Lagos, Nigeria",
-    type: "Public",
-    image: "/images/design-week.png",
+    type: "Health & Wellness",
+    image: "/images/explore/5.png",
     description: "A showcase of Nigeria’s top UI/UX design talent and trends.",
     tags: ["UIUX", "Design", "LagosEvents"],
     perks: ["Design challenges", "Exhibitions", "Mentorship"],
@@ -117,6 +148,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 10,
     ticketTypes: ["General", "VIP"],
+    privacyLevel: "Wallet Required",
   },
   {
     id: "crypto-build-ghana",
@@ -124,8 +156,8 @@ export const dummyEvents = [
     date: "Jul. 22 2025",
     time: "2:00 pm (UTC +00:00)",
     location: "Kumasi, Ghana",
-    type: "Private",
-    image: "/images/crypto-ghana.png",
+    type: "Education",
+    image: "/images/explore/6.png",
     description:
       "Build crypto apps that scale with guidance from industry experts.",
     tags: ["Crypto", "Solidity", "AfricaBuild"],
@@ -140,6 +172,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 30,
     ticketTypes: ["Student", "VIP"],
+    privacyLevel: "Verified Access",
   },
   {
     id: "founders-lab-africa",
@@ -147,8 +180,8 @@ export const dummyEvents = [
     date: "Sep. 01 2025",
     time: "5:00 pm (UTC +01:00)",
     location: "Remote",
-    type: "Private",
-    image: "/images/founders-lab.png",
+    type: "Community",
+    image: "/images/explore/7.png",
     description:
       "Exclusive lab to turn your startup idea into a pitchable MVP.",
     tags: ["Startups", "PitchLab", "RemoteAfrica"],
@@ -163,6 +196,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 50,
     ticketTypes: ["VIP", "Co-Founder", "Observer"],
+    privacyLevel: "Verified Access",
   },
   {
     id: "product-weekend-abidjan",
@@ -170,8 +204,8 @@ export const dummyEvents = [
     date: "Dec. 15 2025",
     time: "12:00 pm (UTC +00:00)",
     location: "Abidjan, Ivory Coast",
-    type: "Public",
-    image: "/images/product-abidjan.png",
+    type: "Business",
+    image: "/images/explore/8.png",
     description: "Product management event for African tech startups.",
     tags: ["ProductMgmt", "Tech", "Abidjan"],
     perks: ["Keynotes", "Case studies", "PM toolkit"],
@@ -185,6 +219,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 20,
     ticketTypes: ["General", "Team"],
+    privacyLevel: "Verified Access",
   },
   {
     id: "frontend-fusion-fest",
@@ -192,8 +227,8 @@ export const dummyEvents = [
     date: "Jun. 30 2025",
     time: "3:00 pm (UTC +02:00)",
     location: "Cape Town, South Africa",
-    type: "Public",
-    image: "/images/frontend-fest.png",
+      type: "Health & Wellness",
+    image: "/images/explore/9.png",
     description: "Conference for frontend developers & UI engineers.",
     tags: ["Frontend", "React", "CSS", "JavaScript"],
     perks: ["Live coding", "Design Systems", "Swag kits"],
@@ -207,6 +242,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 35,
     ticketTypes: ["Early Bird", "Standard", "VIP"],
+    privacyLevel: "Wallet Required",
   },
   {
     id: "makerthon-benue",
@@ -214,8 +250,8 @@ export const dummyEvents = [
     date: "Jul. 09 2025",
     time: "8:00 am (UTC +01:00)",
     location: "Makurdi, Nigeria",
-    type: "Private",
-    image: "/images/makerthon.png",
+    type: "Education",
+    image: "/images/explore/10.png",
     description: "Hardware meets software in this weekend maker sprint.",
     tags: ["Makers", "IoT", "Nigeria"],
     perks: ["Team prizes", "Prototyping support"],
@@ -229,6 +265,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 20,
     ticketTypes: ["Builder", "Observer"],
+    privacyLevel: "Anonymous",
   },
   {
     id: "devconnect-tanzania",
@@ -236,8 +273,8 @@ export const dummyEvents = [
     date: "Oct. 10 2025",
     time: "2:30 pm (UTC +03:00)",
     location: "Dodoma, Tanzania",
-    type: "Public",
-    image: "/images/devconnect.png",
+    type: "Community",
+    image: "/images/explore/11.png",
     description: "Where Tanzanian devs meet, share, and build open source.",
     tags: ["Developers", "OpenSource", "Tanzania"],
     perks: ["Lightning talks", "Code Jam", "Open Source sprint"],
@@ -251,6 +288,7 @@ export const dummyEvents = [
     isPaid: false,
     price: 0,
     ticketTypes: ["Open"],
+    privacyLevel: "Wallet Required",
   },
   {
     id: "africa-ai-hub",
@@ -258,8 +296,8 @@ export const dummyEvents = [
     date: "Aug. 01 2025",
     time: "1:00 pm (UTC +01:00)",
     location: "Kigali, Rwanda",
-    type: "Private",
-    image: "/images/ai-hub.png",
+    type: "Community",
+    image: "/images/explore/12.png",
     description: "Meet the builders transforming Africa with AI.",
     tags: ["AI", "ML", "Rwanda"],
     perks: ["Demo Showcase", "Keynotes", "Investors"],
@@ -273,6 +311,7 @@ export const dummyEvents = [
     isPaid: true,
     price: 45,
     ticketTypes: ["General", "Startup", "Researcher"],
+    privacyLevel: "Anonymous",
   },
   {
     id: "open-source-fest-ng",
@@ -280,8 +319,8 @@ export const dummyEvents = [
     date: "Nov. 04 2025",
     time: "11:00 am (UTC +01:00)",
     location: "Ibadan, Nigeria",
-    type: "Public",
-    image: "/images/ossfest.png",
+    type: "Community",
+    image: "/images/explore/13.png",
     description: "Nigeria's largest open source contribution festival.",
     tags: ["OpenSource", "Fest", "Nigeria"],
     perks: ["Hack night", "Merch", "Swag"],
@@ -295,6 +334,7 @@ export const dummyEvents = [
     isPaid: false,
     price: 0,
     ticketTypes: ["Free"],
+    privacyLevel: "Wallet Required",
   },
   {
     id: "devrel-days-ghana",
@@ -302,8 +342,8 @@ export const dummyEvents = [
     date: "Sep. 25 2025",
     time: "10:00 am (UTC +00:00)",
     location: "Tamale, Ghana",
-    type: "Private",
-    image: "/images/devrel-days.png",
+    type: "Community",
+    image: "/images/explore/14.png",
     description: "Training & community building for dev advocates.",
     tags: ["DevRel", "Ghana", "Community"],
     perks: ["Speaking practice", "Docs clinic", "Swag"],
@@ -317,5 +357,6 @@ export const dummyEvents = [
     isPaid: true,
     price: 15,
     ticketTypes: ["Speaker", "Community Lead", "Guest"],
+    privacyLevel: "Verified Access",
   },
 ];
