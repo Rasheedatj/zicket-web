@@ -37,7 +37,7 @@ const CustomDropdown: React.FC<CustomDropdownProps> = ({ label, options, value, 
         </span>
       </button>
       {open && (
-        <div className={`absolute left-0 mt-1 bg-white border border-[#E5E7EB] rounded shadow z-10 ${fullWidthOptions ? 'w-full' : 'min-w-[146px]'}`}>
+        <div className={`absolute left-0 mt-1 bg-white border border-[#E5E7EB] rounded shadow z-10 ${fullWidthOptions ? 'w-full' : 'min-w-[180px]'}`}>
           <ul className="py-1">
             <li>
               <button

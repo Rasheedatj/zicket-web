@@ -1,5 +1,4 @@
 "use client";
-import dummyCardImage from "@/public/images/solana-summar.png";
 import {
   ArrowRightIcon,
   CalendarIcon,
@@ -9,24 +8,51 @@ import {
   TicketIcon,
 } from "@/public/svg/svg";
 import { useRouter } from "next/navigation";
-interface CardProps {
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  price: string;
-}
-function Card({ title, date, time, location, price }: CardProps) {
+import { Event, PrivacyLevel } from "@/lib/dummyEvents/events";
+import Image from "next/image";
+
+function Card({ title, date, time, location, price, image, privacyLevel }: Event) {
   const router = useRouter();
 
   const handleNavigate = (eventId: string) => {
     const path = `/explore/${eventId}`.replaceAll(" ", "-");
     router.push(path);
   };
+
+  const getPrivacyLevel = (privacyLevel: PrivacyLevel) => {
+    switch (privacyLevel) {
+      case "Anonymous":
+        return <span className="flex gap-2 items-center bg-[#FFFFFF99] text-[#1E1E1E] px-2 py-1 rounded-[8px] text-xs font-semibold">
+          <Image src="/images/explore/privacy/shield.svg" alt="Anonymous" width={16} height={16} />
+          Anonymous
+          </span>;
+      case "Verified Access":
+        return <span className="flex gap-2 items-center bg-[#FFFFFF99] text-[#1E1E1E] px-2 py-1 rounded-[8px] text-xs font-semibold">
+          <Image src="/images/explore/privacy/lock.svg" alt=" Verified Access" width={16} height={16} />
+          Verified Access
+          </span>;
+      case "Wallet Required":
+        return <span className="flex gap-2 items-center bg-[#FFFFFF99] text-[#1E1E1E] px-2 py-1 rounded-[8px] text-xs font-semibold">
+          <Image src="/images/explore/privacy/key.svg" alt="Wallet Required" width={16} height={16} />
+          Wallet Required
+          </span>;
+    }
+  };
+
+  const getPrice = (price: number) => {
+    if (price === 0) {
+      return <p className="text-xl font-semibold text-[#1E1E1E]">Free</p>;
+    }
+    return <p className="text-xl font-semibold text-[#1E1E1E]">${price.toFixed(2).replace(/\B(?=(\d{3})+(?!\d))/g, ",")}</p>;
+  };
+
   return (
     <div className="max-w-sm rounded-2xl p-2 border-2 bg-white border-[#E9E9E9]  flex flex-col items-center">
-      <div className="border rounded-xl border-[#E9E9E9]">
-        <img src={dummyCardImage.src} alt="" />
+      <div className="relative border rounded-xl border-[#E9E9E9]">
+        <img src={image} alt="" />
+        <div className="absolute top-2 left-2">
+          {getPrivacyLevel(privacyLevel)}
+        </div>
       </div>
       <div className="p-4  w-full space-y-4">
         <div className="space-y-4">
@@ -56,7 +82,7 @@ function Card({ title, date, time, location, price }: CardProps) {
           <div className="flex items-center justify-between">
             <div className="flex gap-2 items-center">
               <TicketIcon />
-              <p className="text-xl font-semibold text-[#1E1E1E]">{price}</p>
+              {getPrice(price)}
             </div>
             <button
               role="link"

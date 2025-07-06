@@ -2,11 +2,11 @@
 
 import { useState, useEffect } from "react";
 import Card from "./card";
-import { EmptyStateIcon, ArrowRightIcon } from "@/public/svg/svg";
+import { EmptyStateIcon } from "@/public/svg/svg";
 import CustomDropdown from "./CustomDropdown";
 import { dummyEvents } from "@/lib/dummyEvents/events";
 import SkeletonCard from "./SkeletonCard";
-import { Filter } from "lucide-react";
+import type { EventType } from "@/lib/dummyEvents/events";
 
 
 function MainContent() {
@@ -15,14 +15,14 @@ function MainContent() {
   const [selectedPrice, setSelectedPrice] = useState<string | null>(null);
   const [selectedLocation, setSelectedLocation] = useState<string | null>(null);
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
-  const [selectedEventType, setSelectedEventType] = useState<string | null>(null);
+  const [selectedEventType, setSelectedEventType] = useState<EventType | null>(null);
   const [showCount, setShowCount] = useState(8);
   const [loading, setLoading] = useState(false);
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [mobilePrivacy, setMobilePrivacy] = useState<string | null>(selectedPrivacy);
   const [mobilePrice, setMobilePrice] = useState<string | null>(selectedPrice);
   const [mobileDate, setMobileDate] = useState<string | null>(selectedDate);
-  const [mobileEventType, setMobileEventType] = useState<string | null>(selectedEventType);
+  const [mobileEventType, setMobileEventType] = useState<EventType | null>(selectedEventType);
   const [mobileLocation, setMobileLocation] = useState<string | null>(selectedLocation);
 
   const privacyOptions = [
@@ -46,7 +46,7 @@ function MainContent() {
     "This Week",
     "This Month"
   ];
-  const eventTypeOptions = [
+  const eventTypeOptions: EventType[] = [
     "Music",
     "Tech & Web3",
     "Art & Culture",
@@ -63,7 +63,7 @@ function MainContent() {
       options: privacyOptions,
       value: selectedPrivacy,
       showAllLabel: 'Show All',
-      setValue: setSelectedPrivacy,
+      setValue: setSelectedPrivacy as (val: string | null) => void,
     },
     {
       key: 'price',
@@ -71,21 +71,21 @@ function MainContent() {
       options: priceOptions,
       value: selectedPrice,
       showAllLabel: 'All Events',
-      setValue: setSelectedPrice,
+      setValue: setSelectedPrice as (val: string | null) => void,
     },
     {
       key: 'location',
       label: 'Location',
       options: locationOptions.slice(1).map(opt => opt.content),
       value: selectedLocation,  
-      setValue: setSelectedLocation,
+      setValue: setSelectedLocation as (val: string | null) => void,
     },
     {
       key: 'date',
       label: 'Date Range',
       options: dateOptions,
       value: selectedDate,
-      setValue: setSelectedDate,
+      setValue: setSelectedDate as (val: string | null) => void,
     },
     {
       key: 'eventType',
@@ -93,16 +93,47 @@ function MainContent() {
       options: eventTypeOptions,
       value: selectedEventType,
       showAllLabel: 'All Category',
-      setValue: setSelectedEventType,
+      setValue: (val: string | null) => {
+        if (val && eventTypeOptions.includes(val as EventType)) {
+          setSelectedEventType(val as EventType);
+        } else {
+          setSelectedEventType(null);
+        }
+      },
     },
   ];
 
   const filteredEvents = events.filter((event) => {
     const matchLocation = !selectedLocation || event.location === selectedLocation;
-    const matchPrice = !selectedPrice || event.price.toString() === selectedPrice;
-    const matchDate = !selectedDate || event.date === selectedDate;
-    const matchType = !selectedEventType || event.type === selectedEventType;
-    const matchPrivacy = !selectedPrivacy || event.type === selectedPrivacy;
+    const matchPrice = !selectedPrice ||
+      (selectedPrice === "Free Events Only" && event.price === 0) ||
+      (selectedPrice === "Paid Events Only" && event.price > 0);
+    let matchDate = true;
+    if (selectedDate === "Today") {
+      const eventDate = new Date(event.date);
+      const today = new Date();
+      matchDate = eventDate.getDate() === today.getDate() &&
+        eventDate.getMonth() === today.getMonth() &&
+        eventDate.getFullYear() === today.getFullYear();
+    } else if (selectedDate === "This Week") {
+      const eventDate = new Date(event.date);
+      const today = new Date();
+      const firstDayOfWeek = new Date(today);
+      firstDayOfWeek.setDate(today.getDate() - today.getDay()); // Sunday
+      const lastDayOfWeek = new Date(today);
+      lastDayOfWeek.setDate(today.getDate() + (6 - today.getDay())); // Saturday
+      matchDate = eventDate >= firstDayOfWeek && eventDate <= lastDayOfWeek;
+    } else if (selectedDate === "This Month") {
+      const eventDate = new Date(event.date);
+      const today = new Date();
+      matchDate = eventDate.getMonth() === today.getMonth() &&
+        eventDate.getFullYear() === today.getFullYear();
+    } else if (selectedDate) {
+      matchDate = event.date === selectedDate;
+    }
+    const matchType = !selectedEventType ||
+      (event.type && selectedEventType && event.type.toString().trim().toLowerCase() === selectedEventType.toString().trim().toLowerCase());
+    const matchPrivacy = !selectedPrivacy || event.privacyLevel === selectedPrivacy;
     return (
       matchLocation && matchPrice && matchDate && matchType && matchPrivacy
     );
@@ -141,7 +172,6 @@ function MainContent() {
 
   return (
     <div className="max-w-7xl mx-auto py-8 px-4">
-      {/* Filtros desktop/tablet */}
       <div className="hidden sm:flex flex-col md:flex-row md:items-center md:justify-between gap-2 mb-2 border-t border-b border-t-[#F0F2F5] border-b-[#F0F2F5] py-2">
         <div className="flex flex-wrap items-center gap-2 text-sm w-full md:w-auto">
           <span className="font-medium text-[#7C3AED] mr-1">Filters:</span>
@@ -166,7 +196,6 @@ function MainContent() {
           />
         </div>
       </div>
-      {/* Filtros mobile */}
       <div className="flex sm:hidden items-center justify-between mb-4">
         <span className="font-bold text-lg text-[#2C0A4A]">Filter by:</span>
         <button
@@ -182,7 +211,6 @@ function MainContent() {
           </svg>
         </button>
       </div>
-      {/* Drawer mobile */}
       {drawerOpen && (
         <>
           <div className="fixed inset-0 bg-black bg-opacity-30 z-40" onClick={() => setDrawerOpen(false)} />
@@ -215,8 +243,16 @@ function MainContent() {
                       f.key === 'price' ? setMobilePrice :
                       f.key === 'location' ? setMobileLocation :
                       f.key === 'date' ? setMobileDate :
-                      f.key === 'eventType' ? setMobileEventType :
-                      () => {}
+                      f.key === 'eventType'
+                        ? (val: string | null) => {
+                            if (val && eventTypeOptions.includes(val as EventType)) {
+                              setMobileEventType(val as EventType);
+                            } else {
+                              setMobileEventType(null);
+                            }
+                          }
+                        :
+                          () => {}
                     }
                     fullWidthOptions
                   />
@@ -230,7 +266,6 @@ function MainContent() {
           </div>
         </>
       )}
-      {/* Chips y showing solo en desktop/tablet */}
       <div className="hidden sm:flex flex-wrap items-center justify-between gap-2 mb-4 mt-1 w-full min-h-[32px]">
         <div className="flex flex-wrap gap-2 min-h-[28px]">
           {filterConfigs.map(f => f.value && (
@@ -274,11 +309,7 @@ function MainContent() {
             {filteredEvents.slice(0, showCount).map((event, index) => (
               <Card
                 key={index}
-                date={event.date}
-                location={event.location}
-                price={"$" + event.price.toLocaleString()}
-                time={event.time}
-                title={event.title}
+                {...event}
               />
             ))}
           </div>
