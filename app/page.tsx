@@ -9,7 +9,6 @@ import { FAQSection } from "./newComponents/faq-section";
 import { HostInPeace } from "./newComponents/host-in-peace";
 import { TrendingNews } from "./newComponents/trending-news";
 // import { Footer } from "@/components/footer"
-
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#f6f0fb]">
