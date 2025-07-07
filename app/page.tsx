@@ -2,7 +2,8 @@
 import { HeroSection } from "./newComponents/hero-section";
 import { HowItWorks } from "./newComponents/how-it-works";
 import { NoSignupsSection } from "./newComponents/no-signups-section";
-import { TrendingEvents } from "./newComponents/trending-events";
+// import { TrendingEvents } from "./newComponents/trending-events";
+import EventSlider from "./components/EventSlider";
 import { PowerfulTools } from "./newComponents/powerful-tools";
 import { FAQSection } from "./newComponents/faq-section";
 import { HostInPeace } from "./newComponents/host-in-peace";
@@ -16,7 +17,8 @@ export default function HomePage() {
       <HeroSection />
       <HowItWorks />
       <NoSignupsSection />
-      <TrendingEvents />
+      {/* <TrendingEvents /> */}
+      <EventSlider />
       <PowerfulTools />
       <FAQSection />
       <HostInPeace />

@@ -23,7 +23,7 @@ export function HowItWorks() {
   ];
 
   return (
-    <section className="">
+    <section className="max-w-[1200px] mx-auto">
       <div className="mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-[#2C0A4A] text-[30px] md:text-[40px] font-bold mb-4">

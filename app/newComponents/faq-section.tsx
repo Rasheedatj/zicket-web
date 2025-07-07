@@ -39,9 +39,9 @@ export function FAQSection() {
       <div className="container mx-auto px-4 max-w-3xl">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">FAQs</h2>
-          <p className="text-gray-600">
-            Find all you need to know about Zicket – how it works, what makes it
-            unique, and how you can get the most out of your events.
+          <p className="text-[#6C6C6C] text-[16px]">
+            Everything you need to know about using Zicket—how it works, what
+            makes it private, and how you can join or host your next event.
           </p>
         </div>
         <div className="space-y-4">
@@ -54,7 +54,7 @@ export function FAQSection() {
                 onClick={() => toggleItem(index)}
                 className="w-full flex justify-between items-center text-left"
               >
-                <h3 className="font-semibold">{faq.question}</h3>
+                <h3 className="font-semibold text-[#121212] text-[20px]">{faq.question}</h3>
                 {openItem === index ? (
                   <span className="flex items-center bg-[#6917AF] rounded-full p-1">
                     <Minus className="w-5 h-5 text-white transition-transform duration-200" />
@@ -66,8 +66,8 @@ export function FAQSection() {
                 )}
               </button>
               {openItem === index && (
-                <div className="mt-4 overflow-hidden">
-                  <p className="text-gray-600 animate-in slide-in-from-top-2 duration-200">
+                <div className="overflow-hidden border-t py-6">
+                  <p className="text-[#121212] text-[16px] animate-in slide-in-from-top-2 duration-200">
                     {faq.answer}
                   </p>
                 </div>
