@@ -1,9 +1,7 @@
 import React from 'react'
-import HeroSection from '../../components/About/HeroSection'
-import WhatIsZicket from '../../components/About/WhatIsZicket'
-import WhyZicket from '../../components/About/WhyZicket'
-import Header from '../../components/Header'
-import Footer from '../../components/Footer'
+import HeroSection from '@/app/components/About/HeroSection'
+import WhatIsZicket from '@/app/components/About/WhatIsZicket'
+import WhyZicket from '@/app/components/About/WhyZicket'
 
 function page() {
   return (

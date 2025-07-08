@@ -1,4 +1,5 @@
-import HowItWorks from "../components/HowItWorks";
+import HowItWorks from "@/app/components/HowItWorks";
+
 
 export default function Home() {
   return (
