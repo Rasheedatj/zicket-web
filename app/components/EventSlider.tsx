@@ -78,7 +78,7 @@ export default function EventSlider() {
   return (
     <div className="w-full max-w-6xl mx-auto py-8">
       <div className="flex items-center justify-between mb-4">
-        <h3 className="text-xl font-bold [color:var(--color-text-detail)] dark:text-[var(--color-text-main-dark)]">Explore Other Events</h3>
+        <h3 className="text-[32px] font-bold [color:var(--color-text-detail)] dark:text-[var(--color-text-main-dark)]">Explore Other Events</h3>
         <div className="flex gap-2">
           <button
             className="w-9 h-9 flex items-center justify-center rounded-full cursor-pointer group"

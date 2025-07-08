@@ -47,8 +47,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <div className="bg-[#2C0A4A]">
           <Header />
-
+          </div>
           {children}
           <Footer />
         </ThemeProvider>

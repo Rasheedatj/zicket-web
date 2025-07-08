@@ -5,14 +5,15 @@ import { OrganizerCard } from "@/app/components/explore/EventCheckout/OrganizerC
 import { TicketInfo } from "@/app/components/explore/EventCheckout/TicketInfo";
 import { WhatYouWillGetCard } from "@/app/components/explore/EventCheckout/WhatYouWillGetCard";
 import { dummyEvents } from "@/lib/dummyEvents/events";
-import { useEffect } from "react";
+import { useEffect, use } from "react";
 
 type Props = {
-  params: { eventId: string };
+  params: Promise<{ eventId: string }>;
 };
 
 export default function EventPage({ params }: Props) {
-  const eventName = params.eventId.replaceAll("-", " ");
+  const { eventId } = use(params);
+  const eventName = eventId.replaceAll("-", " ");
   const event = dummyEvents.filter(
     (event) => event.title.toLocaleLowerCase() === eventName.toLocaleLowerCase()
   );
@@ -22,7 +23,10 @@ export default function EventPage({ params }: Props) {
   return (
     <div className="max-w-7xl mx-auto space-y-15 py-20 px-4">
       <div className="flex gap-1 items-center w-[calc(100vw - 20px)] lg:w-[436px]">
-        <a href="/explore" className="text-sm font-medium text-[#2C0A4A] dark:text-[#D7B5F5] capitalize">
+        <a
+          href="/explore"
+          className="text-sm font-medium text-[#2C0A4A] dark:text-[#D7B5F5] capitalize"
+        >
           explore
         </a>
         <span className="text-[#667185]">/</span>
@@ -30,7 +34,9 @@ export default function EventPage({ params }: Props) {
           Web3 & Crypto Meetups
         </p>
         <span className="text-[#667185]">/</span>
-        <p className="w-1/3 md:w-fit text-sm font-medium text-[#667185] line-clamp-1 flex-shrink min-w-0">{eventName}</p>
+        <p className="w-1/3 md:w-fit text-sm font-medium text-[#667185] line-clamp-1 flex-shrink min-w-0">
+          {eventName}
+        </p>
       </div>
       <div className="space-y-16">
         <EventDetailCard
