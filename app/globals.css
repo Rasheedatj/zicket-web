@@ -165,8 +165,7 @@
 
 /* Custom gradient for signup/login pages */
 .auth-gradient {
-  
-              background: linear-gradient(to bottom, #000212, #5a2aa0, #cfcfcf);
+  background: linear-gradient(to bottom, #000212, #5a2aa0, #cfcfcf);
 }
 
 /* Glowing border effect */

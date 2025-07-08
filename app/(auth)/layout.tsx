@@ -17,7 +17,7 @@ export default function SignupLayout({
   return (
     <html lang="en" className="dark">
       <body className={`${inter.className} antialiased bg-black`}>
-        <main className="min-h-screen">{children}</main>
+        <main className="min-h-screen text-white">{children}</main>
       </body>
     </html>
   );
