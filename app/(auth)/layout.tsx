@@ -1,24 +1,20 @@
 import { Metadata } from 'next';
-import { Inter } from 'next/font/google';
-import '@/app/globals.css';
-
-const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Sign Up - Zicket',
-  description: 'Create your Zicket account to start buying and selling tickets for events.',
+  title: 'Authentication - Zicket',
+  description: 'Sign up or log in to your Zicket account.',
 };
 
-export default function SignupLayout({
+export default function AuthLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
-      <body className={`${inter.className} antialiased bg-black`}>
-        <main className="min-h-screen text-white">{children}</main>
-      </body>
-    </html>
+    <div className="min-h-screen flex items-center justify-center auth-gradient">
+      <main className="w-full max-w-md px-4 py-8">
+        {children}
+      </main>
+    </div>
   );
 } 

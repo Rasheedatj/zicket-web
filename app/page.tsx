@@ -1,12 +1,12 @@
-import HowItWorks from "../components/HowItWorks";
-import Header from "../components/Header";
-import { Description } from "../components/Description";
-import WhatZicketOffers from "../components/WhatZicketOffers";
-import ZicketTrending from "../components/ZikcetTrending";
-import WhyZicket from "../components/About/WhyZicket";
-import Host from "../components/Host";
-import News from "../components/News";
-import FAQ from "../components/FAQ";
+import HowItWorks from "./components/HowItWorks";
+import Header from "./components/Header";
+import { Description } from "./components/Description";
+import WhatZicketOffers from "./components/WhatZicketOffers";
+import ZicketTrending from "./components/ZikcetTrending";
+import WhyZicket from "./components/About/WhyZicket";
+import Host from "./components/Host";
+import News from "./components/News";
+import FAQ from "./components/FAQ";
 
 export default function Home() {
   return (
