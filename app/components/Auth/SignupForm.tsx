@@ -4,7 +4,7 @@ import { useRouter } from "next/navigation";
 import { FormContainer } from "./FormContainer";
 import { FormInput } from "./FormInput";
 import { FormButton } from "./FormButton";
-import { ArrowLeftIcon } from "lucide-react";
+import { ChevronLeft, Mail } from "lucide-react";
 
 export function SignupForm() {
   const [formData, setFormData] = useState({
@@ -46,6 +46,7 @@ export function SignupForm() {
           }
           required
           minLength={8}
+          endIcon={<Mail className="w-4 h-4" />}
         />
 
         <FormButton
@@ -63,7 +64,8 @@ export function SignupForm() {
             type="button"
             variant="secondary"
             onClick={() => router.back()}
-            icon={<ArrowLeftIcon className="w-4 h-4" />}
+            icon={<ChevronLeft size={21} />}
+            className="flex items-center gap-2 justify-center w-full text-[#FFFFFF] text-[14px] font-bold transition-colors cursor-pointer"
           >
             Go Back
           </FormButton>
