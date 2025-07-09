@@ -4,9 +4,10 @@ interface FormButtonProps {
   type: "submit" | "button";
   onClick?: () => void;
   variant: "primary" | "secondary";
-  icon?: string;
+  icon?: string | React.ReactElement;
   iconSize?: number;
   children: React.ReactNode;
+  className?: string;
 }
 
 export function FormButton({
@@ -15,11 +16,12 @@ export function FormButton({
   variant = "primary",
   icon,
   iconSize = 24,
-  children
+  children,
+  className = ""
 }: FormButtonProps) {
-  const baseStyles = "w-full transition-all duration-200";
+  const baseStyles = "transition-all duration-200 flex items-center gap-2";
   const variantStyles = {
-    primary: "bg-[#751ac6] hover:bg-purple-700 text-white font-medium p-4 rounded-xl flex items-center justify-center gap-2",
+    primary: "bg-[#751ac6] hover:bg-purple-700 text-white font-medium p-4 rounded-xl justify-center",
     secondary: "py-2 rounded text-sm text-gray-300"
   };
 
@@ -27,16 +29,16 @@ export function FormButton({
     <button
       type={type}
       onClick={onClick}
-      className={`${baseStyles} ${variantStyles[variant]}`}
+      className={`${baseStyles} ${variantStyles[variant]} ${className}`}
     >
-      {icon && (
+      {icon && typeof icon === 'string' ? (
         <Image
           src={icon}
           alt=""
           width={iconSize}
           height={iconSize}
         />
-      )}
+      ) : icon}
       {children}
     </button>
   );

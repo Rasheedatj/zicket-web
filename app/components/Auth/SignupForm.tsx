@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { FormContainer } from "./FormContainer";
 import { FormInput } from "./FormInput";
 import { FormButton } from "./FormButton";
+import { ArrowLeftIcon } from "lucide-react";
 
 export function SignupForm() {
   const [formData, setFormData] = useState({
@@ -52,17 +53,21 @@ export function SignupForm() {
           variant="primary"
           icon="/svg/security-password.svg"
           iconSize={30}
+          className="w-full"
         >
           Verify ZicketMail
         </FormButton>
 
-        <FormButton
-          type="button"
-          variant="secondary"
-          onClick={() => router.back()}
-        >
-          Go Back
-        </FormButton>
+        <div className="flex justify-center items-center w-full">
+          <FormButton
+            type="button"
+            variant="secondary"
+            onClick={() => router.back()}
+            icon={<ArrowLeftIcon className="w-4 h-4" />}
+          >
+            Go Back
+          </FormButton>
+        </div>
       </form>
     </FormContainer>
   );

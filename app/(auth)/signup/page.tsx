@@ -9,7 +9,7 @@ export default function SignupPage() {
   
 
   return (
-    <div className="auth-gradient flex items-center justify-center px-4 pb-4 min-h-screen">
+    <div className="flex items-center justify-center px-4 pb-4 min-h-screen">
       <div className="w-full max-w-[520px] py-8">
         {/* Logo */}
         <div className="flex justify-center mb-8">
