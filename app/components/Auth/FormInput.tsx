@@ -20,22 +20,22 @@ export function FormInput({
   endIcon
 }: FormInputProps) {
   return (
-    <div>
-      {label && <label className="block text-sm mb-1">{label}</label>}
+    <div className="space-y-4 md:space-y-5">
+      {label && <label className="text-slate-300 text-sm md:text-base block">{label}</label>}
       <div className="relative">
         <input
           type={type}
           placeholder={placeholder}
-          className="w-full p-3 bg-[#1a1a1a] text-white border border-gray-600 rounded-lg pr-10 focus:outline-none focus:ring-2 focus:ring-purple-600"
+          className="w-full bg-transparent border border-[#751AC6] text-white placeholder:text-[#7D7C7C] pr-12 h-16 rounded-2xl px-4 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
           value={value}
           onChange={onChange}
           required={required}
           minLength={minLength}
         />
         {endIcon && (
-          <div className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400">
+         <>
             {endIcon}
-          </div>
+          </>
         )}
       </div>
     </div>

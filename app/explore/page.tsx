@@ -1,4 +1,6 @@
-import MainContent from "@/app/components/explore/MainContent";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import MainContent from "../components/explore/MainContent";
 
 function page() {
   return (

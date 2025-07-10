@@ -162,25 +162,3 @@
     display: none;
   }
 }
-
-/* Custom gradient for signup/login pages */
-.auth-gradient {
-  background: linear-gradient(to bottom, #000212, #5a2aa0, #cfcfcf);
-}
-
-/* Glowing border effect */
-.glow-border {
-  box-shadow: 0 0 20px rgba(109, 40, 217, 0.2);
-}
-
-/* Custom input styles */
-.auth-input {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(109, 40, 217, 0.2);
-  backdrop-filter: blur(10px);
-}
-
-.auth-input:focus {
-  border-color: rgba(109, 40, 217, 0.5);
-  box-shadow: 0 0 0 2px rgba(109, 40, 217, 0.1);
-}

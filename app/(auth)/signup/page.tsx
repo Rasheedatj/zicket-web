@@ -1,44 +1,43 @@
 import { SignupForm } from "@/app/components/Auth";
+import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function SignupPage() {
   return (
-    <div className="min-h-screen flex flex-col"
+    <div className="min-h-screen flex flex-col py-2"
     style={{
       backgroundImage: "url('/images/bg.png')",
       backgroundSize: "cover",
       backgroundPosition: "center",
       backgroundRepeat: "no-repeat",
     }}>
-      <div className="flex-1 flex flex-col items-center justify-center p-5 md:p-8">
+      <div className="flex-1 flex flex-col items-center justify-center px-5 md:px-8">
         {/* Logo */}
-        <div className="flex justify-center mb-8">
+        
           <Link href="/">
             <Image
-              src="/images/zk-logo-white.png"
+              src="/images/Logo2.png"
               alt="Zicket Logo"
               width={120}
-              height={40}
-              priority
-              className="hover:opacity-90 transition-opacity"
+              height={120}
+              className="pb-8"
             />
           </Link>
-        </div>
+        
 
         {/* Signup Form */}
         <SignupForm />
 
-        <div className="flex items-center justify-center">
-          <div className="text-center mt-6 w-fit bg-white rounded-full p-4">
-            <span className="text-sm text-gray-500">
-              Already Have an Account?{" "}
-              <a href="#" className="text-purple-400 hover:underline">
-                Log in
-              </a>
-            </span>
-          </div>
-        </div>
+        <Button
+          variant="secondary"
+          className="w-auto md:w-auto bg-[#FFFFFF] text-[#514A4A] hover:bg-slate-100 h-16 px-8 rounded-full font-medium text-lg"
+        >
+          {"Already Have an Account? "}
+          <span className="text-[#8F37DA] ml-1 font-bold cursor-pointer">
+            <Link href="/login">Log in</Link>
+          </span>
+        </Button>
       </div>
     </div>
   );

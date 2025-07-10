@@ -46,15 +46,15 @@ export function SignupForm() {
           }
           required
           minLength={8}
-          endIcon={<Mail className="w-4 h-4" />}
+          endIcon={<Mail className="absolute right-4 top-1/2 transform -translate-y-1/2 w-8 h-8 text-[#CBD2EB]"/>}
         />
 
         <FormButton
           type="submit"
           variant="primary"
           icon="/svg/security-password.svg"
-          iconSize={30}
-          className="w-full"
+          iconSize={24}
+          className="w-full text-lg cursor-pointer bg-[#751AC6] hover:from-purple-700 hover:to-purple-600 text-white h-14 rounded-lg font-medium"
         >
           Verify ZicketMail
         </FormButton>
@@ -65,7 +65,7 @@ export function SignupForm() {
             variant="secondary"
             onClick={() => router.back()}
             icon={<ChevronLeft size={21} />}
-            className="flex items-center gap-2 justify-center w-full text-[#FFFFFF] text-[14px] font-bold transition-colors cursor-pointer"
+            className="flex items-center gap-2 justify-center w-full text-[#FFFFFF] cursor-pointer text-[14px] font-bold transition-colors"
           >
             Go Back
           </FormButton>
