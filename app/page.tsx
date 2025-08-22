@@ -12,7 +12,6 @@ import { TrendingNews } from "./newComponents/trending-news";
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#f6f0fb]">
-      {/* <Header /> */}
       <HeroSection />
       <HowItWorks />
       <NoSignupsSection />
@@ -22,7 +21,6 @@ export default function HomePage() {
       <FAQSection />
       <HostInPeace />
       <TrendingNews />
-      {/* <Footer /> */}
     </div>
   );
 }

@@ -24,8 +24,8 @@ function Header() {
   ];
   const pathname = usePathname();
   return (
-    <div className="pt-5 px-5 sticky top-0 z-20">
-      <div className="pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto dark:border dark:border-[#E4E4E4] bg-[#FFFFFFCC] dark:bg-[#000213] rounded-[100px] flex items-center justify-between">
+    <div className="pt-5 px-5 sticky top-0 z-20 backdrop-blur-md">
+      <div className="pl-6 pr-4 py-4 w-full max-w-[1200px] m-auto border border-[#E4E4E4] bg-[#FFFFFFCC] rounded-[100px] flex items-center justify-between">
         <div className="flex items-center gap-8">
           <a
             href="/"
