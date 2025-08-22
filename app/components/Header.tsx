@@ -79,10 +79,11 @@ function Header() {
               {isAnonymous ? "ON" : "OFF"}
             </span>
           </div>
-          <button className="cursor-pointer px-6 py-3 border bg-[#6917AF] text-white dark:text-[#0D0D0D] rounded-full font-bold transition-all duration-300 dark:hover:drop-shadow-[0_0_2em_rgba(255,255,255,0.3)] dark:hover:text-gray-50">
-            Host Event
-          </button>
+          <a href="/auth/login" className="group flex gap-1 items-center cursor-pointer px-6 py-3 border border-[#8F37DA] bg-gradient-to-b from-[#5E4BF3] to-[#9109D0] text-white dark:text-[#6917AF] rounded-full font-bold transition-all duration-300 dark:hover:drop-shadow-[0_0_2em_rgba(255,255,255,0.3)] dark:hover:text-gray-50">
+            Host Event <ArrowUpRight size="15" className="group-hover:rotate-45 delay-300 transition-all"/>
+          </a>
         </div>
+        {/* mobile nav */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden border-2 border-[#751AC6] rounded-lg p-3"

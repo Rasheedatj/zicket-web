@@ -24,10 +24,10 @@ export function HeroSection() {
         </p>
         <Button
           size="lg"
-          className="bg-[#4B107C] hover:bg-purple-600 text-white border-none px-8 py-4 text-lg font-semibold rounded-full shadow-lg shadow-[#751AC63D] hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+          className="group bg-[#4B107C] hover:bg-purple-600 text-white border-none px-8 py-4 text-lg font-semibold rounded-full shadow-lg shadow-[#751AC63D] hover:shadow-xl transition-all duration-300 transform hover:scale-105"
         >
           <span>Explore Events Anonymously</span>
-          <ArrowUpRight className="w-5 h-5 ml-2" />
+          <ArrowUpRight className="w-5 h-5 ml-2 group-hover:rotate-45 delay-300 transition-all" />
         </Button>
       </div>
 
