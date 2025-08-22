@@ -131,15 +131,15 @@ function Header() {
                 {isAnonymous ? "ON" : "OFF"}
               </span>
             </div>
-            <button className="flex px-6 py-3 bg-[#6917AF] text-white rounded-full font-bold">
+            <a href="/auth/login" className="flex px-6 py-3 bg-[#6917AF] text-white rounded-full font-bold">
               Host Event
-              <ArrowUpRight w-5 h-5 />
-            </button>
+              <ArrowUpRight className="w-5 h-5"/>
+            </a>
           </div>
         )}
       </div>
 
-      <div className="absolute top-12 right-6">
+      <div className="hidden md:block absolute top-12 right-6">
         <ModeToggle />
       </div>
     </div>
