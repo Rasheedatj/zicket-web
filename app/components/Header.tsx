@@ -79,7 +79,7 @@ function Header() {
               {isAnonymous ? "ON" : "OFF"}
             </span>
           </div>
-          <a href="/auth/login" className="group flex gap-1 items-center cursor-pointer px-6 py-3 border border-[#8F37DA] bg-gradient-to-b from-[#5E4BF3] to-[#9109D0] text-white dark:text-[#6917AF] rounded-full font-bold transition-all duration-300 dark:hover:drop-shadow-[0_0_2em_rgba(255,255,255,0.3)] dark:hover:text-gray-50">
+          <a href="/login" className="group flex gap-1 items-center cursor-pointer px-6 py-3 border border-[#8F37DA] bg-gradient-to-b from-[#5E4BF3] to-[#9109D0] text-white dark:text-[#6917AF] rounded-full font-bold transition-all duration-300 dark:hover:drop-shadow-[0_0_2em_rgba(255,255,255,0.3)] dark:hover:text-gray-50">
             Host Event <ArrowUpRight size="15" className="group-hover:rotate-45 delay-300 transition-all"/>
           </a>
         </div>
@@ -132,7 +132,7 @@ function Header() {
                 {isAnonymous ? "ON" : "OFF"}
               </span>
             </div>
-            <a href="/auth/login" className="flex px-6 py-3 bg-[#6917AF] text-white rounded-full font-bold">
+            <a href="/login" className="flex px-6 py-3 bg-[#6917AF] text-white rounded-full font-bold">
               Host Event
               <ArrowUpRight className="w-5 h-5"/>
             </a>
