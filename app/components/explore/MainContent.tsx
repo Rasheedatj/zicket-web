@@ -142,7 +142,7 @@ function MainContent() {
         event.type.toString().trim().toLowerCase() ===
           selectedEventType.toString().trim().toLowerCase());
     const matchPrivacy =
-      !selectedPrivacy || event.privacyLevel === selectedPrivacy;
+      !selectedPrivacy || event.privacyLevel[0] === selectedPrivacy;
     return (
       matchLocation && matchPrice && matchDate && matchType && matchPrivacy
     );
