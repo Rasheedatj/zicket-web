@@ -79,7 +79,7 @@ export function TicketCancellationModal({
     <Dialog open={isOpen} onOpenChange={handleOpenChange}>
       <DialogOverlay className="fixed inset-0 z-50 bg-white/40 backdrop-blur-md data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0" />
       <DialogContent
-        className="fixed left-[50%] top-[50%] z-50 gap-0 w-full bg-white !max-w-[375px] mx-4 translate-x-[-50%] translate-y-[-50%]  rounded-2xl shadow-lg p-6 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 duration-200 border-0 sm:mx-0 font-work-sans"
+        className="fixed left-[50%] top-[50%] z-50 gap-0 w-full bg-white max-w-[90vw] md:max-w-[375px] md:mx-4 translate-x-[-50%] translate-y-[-50%]  rounded-2xl shadow-lg p-6 data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 duration-200 border-0 sm:mx-0 font-work-sans"
         showCloseButton={false}
       >
         {!showSuccess ? (
