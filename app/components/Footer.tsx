@@ -23,7 +23,7 @@ function Footer() {
               />
               <button className="bg-[#6917AF] rounded-full flex  gap-2 justify-center items-center text-white py-3 px-6 w-max text-sm whitespace-nowrap">
                 Join Now
-                <ArrowUpRight w-5 h-5/>
+                <ArrowUpRight className="w-5 h-5"/>
               </button>
             </div>
             <p className="text-xs text-[#CECECE] mt-5">

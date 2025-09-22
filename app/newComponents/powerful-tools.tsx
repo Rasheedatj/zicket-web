@@ -53,7 +53,7 @@ export function PowerfulTools() {
             Trusted Space for your community of fans.
           </p>
           <button className="mt-16 flex border border-[#2C0A4A] md:mx-0 mx-auto rounded-full py-2 px-3 text-[#2C0A4a] cursor-pointer">
-            Explore Events <ArrowUpRight w-5 h-5 />
+            Explore Events <ArrowUpRight className="w-5 h-5" />
           </button>
         </div>
         <div className="w-full grid grid-cols-2 md:grid-cols-4 gap-4">

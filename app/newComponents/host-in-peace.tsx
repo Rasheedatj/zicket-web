@@ -13,7 +13,7 @@ export function HostInPeace() {
           and manage events without compromising guest privacy.
         </p>
         <button className="flex mx-auto border border-[#2C0A4A] rounded-full py-2 px-3 text-[#2C0A4a] cursor-pointer">
-          Host An Event <ArrowUpRight w-5 h-5/>
+          Host An Event <ArrowUpRight className="w-5 h-5"/>
         </button>
       </div>
     </section>
