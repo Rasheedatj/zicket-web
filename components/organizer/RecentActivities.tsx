@@ -9,14 +9,16 @@ const recentActivities: IRecentActivities[] = [
   {
     key: 1,
     icon: '/gaurd.svg',
-    title: 'New Anonymous RSVP',
+    title: 'New Anonymous RSVP to',
+    titleTag: 'DJ Nights Unlisted',
     description: '1 attendee joined anonymously via zkEmail reminder link.',
     timeStamp: 'Just now',
   },
   {
     key: 2,
     icon: '/lock.svg',
-    title: ' Privacy Level Updated',
+    title: ' Privacy Level Updated For',
+    titleTag: 'Lagos Crypto Salon',
     description:
       'Event updated to allow verified-only attendance via zkPassport.',
     timeStamp: '8 mins ago',

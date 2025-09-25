@@ -43,7 +43,7 @@ const ZkEmailCenter = () => {
           <h3 className='font-medium text-dark-gray'>zkEmail Center</h3>
         </div>
         <Select>
-          <SelectTrigger className='w-[120px] rounded-full font-medium text-dark-gray'>
+          <SelectTrigger className='w-[130px] rounded-full font-medium text-dark-gray'>
             <SelectValue placeholder='This Month' />
           </SelectTrigger>
           <SelectContent>

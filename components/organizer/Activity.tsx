@@ -14,8 +14,14 @@ const Activity = ({ activity }: { activity: IRecentActivities }) => {
         />
 
         <article>
-          <h2 className='font-medium mb-0.5 text-dark-gray text-xs'>
+          <h2 className='font-medium mb-2 text-dark-gray text-xs'>
             {activity.title}
+
+            {activity.titleTag && (
+              <span className='bg-white border-1 text-xs font-medium border-card-border rounded-[4px] py-1 px-2 ml-1'>
+                {activity.titleTag}
+              </span>
+            )}
           </h2>
           <p className='text-sm text-text-description-light'>
             {activity.description}

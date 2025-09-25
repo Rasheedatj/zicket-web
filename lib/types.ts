@@ -55,6 +55,7 @@ export interface IRecentActivities {
   key: number;
   icon: string | StaticImport;
   title: string;
+  titleTag?: string;
   description: string;
   timeStamp: string;
 }
