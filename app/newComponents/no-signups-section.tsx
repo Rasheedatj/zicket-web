@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export function NoSignupsSection() {
   return (
-    <section className="py-20">
+    <section className="py-8 lg:py-20">
       <div className="mx-auto px-4 text-center">
         <h2 className="text-[40px] md:text-[80px] text-[#2C0A4A] mb-4">
           No Signups{" "}
