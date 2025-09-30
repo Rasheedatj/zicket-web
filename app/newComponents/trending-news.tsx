@@ -60,7 +60,7 @@ export function TrendingNews() {
   ];
 
   return (
-    <section className="max-w-[1200px] mx-auto py-20">
+    <section className="max-w-[1200px] mx-auto py-8 lg:py-20">
       <div className="mx-auto px-4">
         <div className="flex justify-between items-center mb-12">
           <h2 className="text-3xl font-bold">Trending News</h2>
