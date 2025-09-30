@@ -40,7 +40,7 @@ export function PowerfulTools() {
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 lg:py-20 bg-white">
       <div className="max-w-[1200px] mx-auto flex flex-col md:flex-row justify-center items-center gap-10">
         <div className="w-full">
           <h2 className="text-[24px] md:text-[40px] md:text-left text-center text-[#2C0A4A] font-bold mb-4">
