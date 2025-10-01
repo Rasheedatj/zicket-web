@@ -109,7 +109,7 @@ export function TrendingEvents() {
   };
 
   return (
-    <section className="py-12 md:py-16 lg:py-20 bg-white">
+    <section className="py-8 lg:py-20 bg-white">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 md:mb-12 gap-4">
           <h2 className="text-2xl sm:text-3xl lg:text-[32px] text-[#2C0A4A] font-bold">

@@ -1,7 +1,7 @@
 import { ArrowUpRight } from "lucide-react";
 export function HostInPeace() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 lg:py-20 bg-white">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-[30px] md:text-[40px] text-[#2C0A4A] font-bold mb-4">
           Host in Peace. No
