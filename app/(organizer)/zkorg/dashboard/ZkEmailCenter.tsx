@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import React from 'react';
-import { Button } from '../ui/button';
+import { Button } from '@/components/ui/button';
 import { ChevronRight } from 'lucide-react';
 import { EmailActivity } from '@/lib/types';
 import {
@@ -9,7 +9,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui/select';
+} from '@/components/ui/select';
 
 const activities: EmailActivity[] = [
   {

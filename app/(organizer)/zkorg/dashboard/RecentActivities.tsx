@@ -1,9 +1,10 @@
 import { IRecentActivities } from '@/lib/types';
 import Image from 'next/image';
 import React, { ReactNode } from 'react';
-import Activity from './Activity';
-import { Button } from '../ui/button';
+
 import { ChevronRight } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import Activity from './Activity';
 
 const recentActivities: IRecentActivities[] = [
   {
