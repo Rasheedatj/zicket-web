@@ -21,12 +21,12 @@ const TicketSummary = () => {
         </div>
 
         <div className='flex flex-col flex-1 justify-between space-y-5 md:space-y-3 '>
-          <h1 className='text-2xl font-semibold text-[#1F1F1F]'>
+          <h1 className='text-lg sm:text-2xl font-semibold text-[#1F1F1F]'>
             Indie Fim Night -Under the starts
           </h1>
 
           {/* date and time */}
-          <div className='flex items-center justify-between text-[#5C6170]'>
+          <div className='flex items-center justify-between  text-sm sm:text-base text-[#5C6170]'>
             <p>Jun. 04 2025</p>
             <p className='w-[1px] h-4 bg-[#5C6170]'></p>
             <p>4:00 pm (UTC +01:00)</p>
@@ -47,7 +47,7 @@ const TicketSummary = () => {
       </div>
 
       {/* ticket stats */}
-      <section className='space-y-8 mt-6 p-4'>
+      <section className='space-y-4 sm:space-y-8 mt-6 p-4'>
         <div className='flex items-center justify-between'>
           <h2 className='font-semibold'>Tickets:</h2>
           <Link
