@@ -6,7 +6,7 @@ import React from 'react';
 const TicketInfo = () => {
   const eventType = 'FREE';
   return (
-    <section className='border-1 md:w-1/2 border-[#E9E9E9] rounded-md p-4'>
+    <section className='border-1 md:w-3/5 border-[#E9E9E9] rounded-md p-4'>
       <h2 className='text-2xl text-[#1F1F1F] pb-2 md:w-[90%] border-b-1 border-[#E9E9E9] font-semibold mb-4'>
         Ticket Info
       </h2>

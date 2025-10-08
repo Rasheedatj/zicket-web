@@ -4,7 +4,7 @@ import React from 'react';
 
 const TicketSummary = () => {
   return (
-    <section className='border-1 md:w-1/2 border-[#E9E9E9] rounded-xl p-4'>
+    <section className='border-1 md:w-2/5 border-[#E9E9E9] rounded-xl p-4'>
       <h1 className='text-2xl mb-8 font-semibold text-[#1F1F1F] pb-4 border-b-1 border-[#E9E9E9]'>
         Ticket Summary
       </h1>
